@@ -10,6 +10,7 @@ import os
 import time
 
 
+# Retrieve the OSPF information from the host_vars files
 def get_ospf_information():
 
     ospf_expected_database = []
@@ -18,7 +19,7 @@ def get_ospf_information():
 
     # Open every device's config file and load it into the temp memory
     for device in device_list:
-        with open(f"/home/kamil/Hons/host_vars/automated_individual_vars/{device}") as cf:
+        with open(f"host_vars/automated_individual_vars/{device}") as cf:
             device_config = yaml.safe_load(cf)
 
 # Get expected OSPF routers
@@ -75,7 +76,7 @@ def ospf_routing_test(task, comparison_list):
     return response
 
 
-# Issue "show ip ospf neighbor" command and verify if
+# Issue "show ip ospf neighbor" command and verify if each device has the expected number of OSPF neighbors
 def ospf_neighbor_test(task, ospf_expected_neighbors_dict):
     response = task.run(netmiko_send_command, command_string="show ip ospf neighbor", use_genie=True)
     if response.result:
