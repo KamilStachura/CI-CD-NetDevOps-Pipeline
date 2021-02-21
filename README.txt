@@ -1,1 +1,1 @@
-CI/CD NetDevOps Pipeline Project
+CI/CD NetDevOps Pipeline Honours Project
