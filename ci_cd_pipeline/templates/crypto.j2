@@ -1,0 +1,100 @@
+<config>
+<native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+  <crypto operation="replace">
+    {% if host.facts.crypto.transform_sets is defined %}
+    <ipsec xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-crypto">
+      {% for set in host.facts.crypto.transform_sets %}
+      <transform-set>
+        <tag>{{ set.tag }}</tag>
+        <esp>{{ set.esp }}</esp>
+        <key-bit>{{ set.key_bit }}</key-bit>
+        <esp-hmac>{{ set.esp_hmac }}</esp-hmac>
+        <mode>
+          <tunnel/>
+        </mode>
+      </transform-set>
+      {% endfor %}
+    </ipsec>
+    {% endif %}
+    {% if host.facts.crypto.isakmp_keys is defined and host.facts.crypto.policy is defined %}
+    <isakmp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-crypto">
+      {% for key in host.facts.crypto.isakmp_keys %}
+      <key>
+        <key-address>
+          <key>{{ key.key }}</key>
+          <addr4-container>
+            <address>{{ key.peer }}</address>
+          </addr4-container>
+        </key-address>
+      </key>
+      {% endfor %}
+      {% for policy in host.facts.crypto.policy %}
+      <policy>
+        <number>{{ policy.number }}</number>
+        <authentication>{{ policy.auth }}</authentication>
+        <group>{{ policy.group }}</group>
+        <hash>{{ policy.hash }}</hash>
+        <lifetime>{{ policy.lifetime }}</lifetime>
+      </policy>
+      {% endfor %}
+    </isakmp>
+    {% endif %}
+    {% if host.facts.crypto.crypto_map is defined %}
+    <crypto-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-crypto">
+      {% for map in host.facts.crypto.crypto_map %}
+      <map>
+        <name>{{ map.name }}</name>
+        <sequence-number>{{ map.sequence }}</sequence-number>
+        <keying>{{ map.keying }}</keying>
+        <match>
+          <address>{{ map.match }}</address>
+        </match>
+        <set>
+          <peer>
+            <address>{{ map.peer }}</address>
+          </peer>
+          <pfs>
+            <group>{{ map.pfs }}</group>
+          </pfs>
+          <transform-set>{{ map.transform_set }}</transform-set>
+        </set>
+      </map>
+      {% endfor %}
+    </crypto-map>
+    {% endif %}
+    <pki xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-crypto">
+      <certificate>
+        <chain>
+          <name>SLA-TrustPoint</name>
+          <certificate>
+            <serial>01</serial>
+            <certtype>ca</certtype>
+          </certificate>
+        </chain>
+        <chain>
+          <name>TP-self-signed-{{ host.facts.crypto.self_signed_certificate }}</name>
+          <certificate>
+            <serial>01</serial>
+            <certtype>self-signed</certtype>
+          </certificate>
+        </chain>
+      </certificate>
+      <trustpoint>
+        <id>SLA-TrustPoint</id>
+        <enrollment>
+          <pkcs12/>
+        </enrollment>
+        <revocation-check>crl</revocation-check>
+      </trustpoint>
+      <trustpoint>
+        <id>TP-self-signed-{{ host.facts.crypto.self_signed_certificate }}</id>
+        <enrollment>
+          <selfsigned/>
+        </enrollment>
+        <revocation-check>none</revocation-check>
+        <subject-name>cn=IOS-Self-Signed-Certificate-{{ host.facts.crypto.self_signed_certificate }}</subject-name>
+      </trustpoint>
+    </pki>
+  </crypto>
+</native>
+</config>

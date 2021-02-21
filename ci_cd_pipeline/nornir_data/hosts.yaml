@@ -1,0 +1,22 @@
+---
+Core1:
+        hostname: 192.168.78.21
+        groups:
+          - core_nb
+          - cisco_group
+          - test_subject
+Core2:
+        hostname: 192.168.78.22
+        groups:
+          - core_nb
+          - cisco_group
+Core3:
+        hostname: 192.168.78.23
+        groups:
+          - core_sb
+          - cisco_group
+Core4:
+        hostname: 192.168.78.24
+        groups:
+          - core_sb
+          - cisco_group

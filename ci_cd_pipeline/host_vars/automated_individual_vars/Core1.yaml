@@ -1,0 +1,114 @@
+ntp:
+  servers:
+  - ip: 192.168.78.148
+
+bgp:
+  id: '65001'
+  rid: 1.1.1.1
+  neighbors:
+  - id: 1.1.1.2
+    as: '65001'
+    loopsource: '0'
+  - id: 1.1.1.3
+    as: '65001'
+    loopsource: '0'
+  - id: 1.1.1.4
+    as: '65001'
+    loopsource: '0'
+  ipv4_unicast_family:
+  - neighborid: 1.1.1.2
+  - neighborid: 1.1.1.3
+  - neighborid: 1.1.1.4
+  networks:
+  - number: 10.10.10.0
+    mask: 255.255.255.0
+
+ospf:
+  id: '1'
+  rid: 1.1.1.1
+  networks:
+  - ip: 1.1.1.1
+    mask: 0.0.0.0
+    area: '0'
+  - ip: 172.168.100.0
+    mask: 0.0.0.255
+    area: '0'
+
+ip:
+  domain: cisco.com
+  tftp_source_gi_int: '1'
+  source_interface: GigabitEthernet1
+  vrf:
+  - name: MGMT
+    description: OOB Management
+  extended_acl:
+  - name: '111'
+    sequences:
+    - number: '10'
+      action: permit
+      protocol: ip
+      srcip: 172.168.100.0
+      srcmask: 0.0.0.255
+      destip: 172.168.200.0
+      destmask: 0.0.0.255
+
+interfaces:
+  GigEthernet:
+  - name: '1'
+    description: OOB Management
+    vrf: MGMT
+    ip: 192.168.78.21
+    mask: 255.255.255.0
+  - name: '2'
+    description: Link Core1-to-Core3
+    unnumbered: Loopback0
+    ospf_network: point-to-point
+    crypto_map: Core1-Core2-MAP
+  - name: '3'
+    description: Link Core1-to-Core4
+    unnumbered: Loopback0
+    ospf_network: point-to-point
+    crypto_map: Core1-Core2-MAP
+  - name: '4'
+    shutdown: 'True'
+  - name: '5'
+    shutdown: 'True'
+  Loopback:
+  - name: '0'
+    description: Core1-id
+    ip: 1.1.1.1
+    mask: 255.255.255.255
+  - name: '10'
+    description: BGP Advertised Loopback
+    ip: 10.10.10.1
+    mask: 255.255.255.0
+  - name: '100'
+    description: VPN LAN Core1
+    ip: 172.168.100.1
+    mask: 255.255.255.0
+
+crypto:
+  transform_sets:
+  - tag: Core1-Core2
+    esp: esp-aes
+    key_bit: '256'
+    esp_hmac: esp-sha512-hmac
+  isakmp_keys:
+  - key: cisco
+    peer: 1.1.1.2
+  policy:
+  - number: '1'
+    auth: pre-share
+    group: '24'
+    hash: sha512
+    lifetime: '3600'
+  crypto_map:
+  - name: Core1-Core2-MAP
+    sequence: '1'
+    keying: ipsec-isakmp
+    match: '111'
+    peer: 1.1.1.2
+    pfs: group24
+    transform_set: Core1-Core2
+  self_signed_certificate: '2106910356'
+
