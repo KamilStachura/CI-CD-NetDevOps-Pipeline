@@ -57,6 +57,7 @@ def fail_report(device_name, feature, details=None):
     return requests.post("https://api.ciscospark.com/v1/messages/", headers=header, data=json.dumps(data), verify=True)
 
 def main():
+    # Decrypt the credentials for all devices from the encrypted file via Ansible vault
     credentials = get_credentials.get_credentials()
     nr = InitNornir(config_file="nornir_data/config.yaml")
     nr.inventory.defaults.username = credentials["username"]

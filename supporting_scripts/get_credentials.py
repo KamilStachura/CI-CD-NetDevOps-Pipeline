@@ -34,6 +34,7 @@ def decrypt_vault(
         unencrypted_yaml = yaml.safe_load(unencrypted_yaml)
         return unencrypted_yaml
 
+# Decrypt the credentials with use of system env variable and return the credentials to a nornir script
 def get_credentials():
     credentials = decrypt_vault(
     filename="/home/kamil/Hons/nornir_data/encrypted_credentials.yaml",

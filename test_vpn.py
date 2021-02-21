@@ -8,9 +8,9 @@ from datetime import datetime
 import time
 
 
+# Issue "show crypto ipsec sa" command on each device and verify if the packets have been encapsulated
 def verify_vpn_tunnel(task):
     time.sleep(5)
-
     response = task.run(
         netmiko_send_command, command_string="show crypto ipsec sa",
     )
@@ -21,6 +21,7 @@ def verify_vpn_tunnel(task):
         print(f"{task.host} Passed VPN Test")
 
 
+# Issue "clear crypto sa" command on each device and initiate the vpn tunnel by sending interesting traffic
 def vpn_test(task):
     clear_up = task.run(
         netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
@@ -40,6 +41,7 @@ def vpn_test(task):
         pass
 
 
+# Send a fail report if the packets are not being encapsulated/the tunnel is not active
 def fail_report(device_name, feature, details=None):
     header = {"Authorization": "Bearer Zjc0YmQxODItNmYxNy00Y2FkLTk1NTEtMzY0MjQ2MmNjZjVjZjk5Y2QyYWItM2U2_PF84_consumer",
               "Content-Type": "application/json"}
@@ -52,11 +54,12 @@ def fail_report(device_name, feature, details=None):
 
 
 def main():
+    # Decrypt the credentials for all devices from the encrypted file via Ansible vault
     credentials = get_credentials.get_credentials()
     nr = InitNornir(config_file="nornir_data/config.yaml")
     nr.inventory.defaults.username = credentials["username"]
     nr.inventory.defaults.password = credentials["password"]
-
+    # Run the VPN test with Nornir
     vpn_test_results = nr.run(
         task=vpn_test,
     )

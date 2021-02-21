@@ -51,6 +51,15 @@ ip:
       srcmask: 0.0.0.255
       destip: 172.168.200.0
       destmask: 0.0.0.255
+  - name: '150'
+    sequences:
+    - number: '10'
+      action: deny
+      protocol: ip
+      srcip: 10.10.10.0
+      srcmask: 0.0.0.255
+      destip: 20.20.20.0
+      destmask: 0.0.0.255
 
 interfaces:
   GigEthernet:
@@ -81,6 +90,10 @@ interfaces:
   - name: '10'
     description: BGP Advertised Loopback
     ip: 10.10.10.1
+    mask: 255.255.255.0
+  - name: '11'
+    description: BGP Advertised Loopback
+    ip: 11.11.11.1
     mask: 255.255.255.0
   - name: '100'
     description: VPN LAN Core1
