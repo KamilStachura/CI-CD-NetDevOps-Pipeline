@@ -358,10 +358,13 @@ def get_crypto(task):
     check_config(task, "crypto", crypto_dict)
 
 def main():
-
+    # Select which get functions would you like to run to retrieve the devices' configs
     list_of_features_to_get = [get_ntp, get_router, get_ip, get_interface, get_crypto]
+
     # Decrypt the credentials for all devices from the encrypted file via Ansible vault
     credentials = get_credentials.get_credentials()
+
+    # Instantiate Nornir with given config file
     nr = InitNornir(config_file="/home/kamil/Hons/nornir_data/config.yaml")
     nr.inventory.defaults.username = credentials["username"]
     nr.inventory.defaults.password = credentials["password"]

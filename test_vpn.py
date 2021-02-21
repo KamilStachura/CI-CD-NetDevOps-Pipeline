@@ -16,6 +16,7 @@ def verify_vpn_tunnel(task):
     )
     if "#pkts encaps: 0" in response.result:
         print(f"{task.host} Failed VPN Test")
+        # Send a fail report if the packets are not being encapsulated/the tunnel is not active
         fail_report(task.host, "VPN", f"The VPN Tunnel is inactive")
     else:
         print(f"{task.host} Passed VPN Test")
@@ -41,7 +42,8 @@ def vpn_test(task):
         pass
 
 
-# Send a fail report if the packets are not being encapsulated/the tunnel is not active
+# Create a fail report by providing the device name, feature and optional details
+# The report is sent via WebEx bot to specified roomID
 def fail_report(device_name, feature, details=None):
     header = {"Authorization": "Bearer Zjc0YmQxODItNmYxNy00Y2FkLTk1NTEtMzY0MjQ2MmNjZjVjZjk5Y2QyYWItM2U2_PF84_consumer",
               "Content-Type": "application/json"}
@@ -56,9 +58,14 @@ def fail_report(device_name, feature, details=None):
 def main():
     # Decrypt the credentials for all devices from the encrypted file via Ansible vault
     credentials = get_credentials.get_credentials()
+
+    # Instantiate Nornir with given config file
     nr = InitNornir(config_file="nornir_data/config.yaml")
+
+    # Assign the decrypted credentials to default username/password values for the devices in Nornir inventory
     nr.inventory.defaults.username = credentials["username"]
     nr.inventory.defaults.password = credentials["password"]
+
     # Run the VPN test with Nornir
     vpn_test_results = nr.run(
         task=vpn_test,

@@ -73,6 +73,7 @@ interfaces:
     unnumbered: Loopback0
     ospf_network: point-to-point
     crypto_map: Core1-Core2-MAP
+    shutdown: "True"
   - name: '3'
     description: Link Core1-to-Core4
     unnumbered: Loopback0

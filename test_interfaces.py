@@ -79,6 +79,8 @@ def interface_test(task, expected_interfaces):
         print(f"{task.host.name} Passed Shut Interface Test")
 
 
+# Create a fail report by providing the device name, feature and optional details
+# The report is sent via WebEx bot to specified roomID
 def fail_report(device_name, feature, details=None):
     header = {"Authorization": "Bearer Zjc0YmQxODItNmYxNy00Y2FkLTk1NTEtMzY0MjQ2MmNjZjVjZjk5Y2QyYWItM2U2_PF84_consumer",
               "Content-Type": "application/json"}
@@ -93,7 +95,11 @@ def fail_report(device_name, feature, details=None):
 def main():
     # Decrypt the credentials for all devices from the encrypted file via Ansible vault
     credentials = get_credentials.get_credentials()
+
+    # Instantiate Nornir with given config file
     nr = InitNornir(config_file="nornir_data/config.yaml")
+
+    # Assign the decrypted credentials to default username/password values for the devices in Nornir inventory
     nr.inventory.defaults.username = credentials["username"]
     nr.inventory.defaults.password = credentials["password"]
 
