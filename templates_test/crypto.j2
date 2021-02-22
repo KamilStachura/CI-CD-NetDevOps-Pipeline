@@ -77,9 +77,9 @@
           </certificate>
         </chain>
         <chain>
-          <name>TP-self-signed-{{ host.facts.crypto.self_signed_certificate_test }}</name>
+          <name>TP-self-signed-{{ host.facts.crypto.ssc_test }}</name>
           <certificate>
-            <serial>01</serial>
+            <serial>02</serial>
             <certtype>self-signed</certtype>
           </certificate>
         </chain>
@@ -92,12 +92,12 @@
         <revocation-check>crl</revocation-check>
       </trustpoint>
       <trustpoint>
-        <id>TP-self-signed-{{ host.facts.crypto.self_signed_certificate_test }}</id>
+        <id>TP-self-signed-{{ host.facts.crypto.ssc_test }}</id>
         <enrollment>
           <selfsigned/>
         </enrollment>
         <revocation-check>none</revocation-check>
-        <subject-name>cn=IOS-Self-Signed-Certificate-{{ host.facts.crypto.self_signed_certificate_test }}</subject-name>
+        <subject-name>cn=IOS-Self-Signed-Certificate-{{ host.facts.crypto.ssc_test }}</subject-name>
       </trustpoint>
     </pki>
   </crypto>
