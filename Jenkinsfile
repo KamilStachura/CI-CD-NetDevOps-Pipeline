@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage("Build_Prod") {
-            when { expression { env.BRANCH_NAME == 'mater'} }
+            when { expression { env.BRANCH_NAME == 'master'} }
             steps {
                 echo "Building Testing Lab!"
                 sh """
@@ -25,7 +25,7 @@ pipeline {
             }
         }
         stage("Deploy_Prod") {
-            when { expression { env.BRANCH_NAME == 'mater'} }
+            when { expression { env.BRANCH_NAME == 'master'} }
             steps {
                 echo "Deploying Configuration To The Testing Lab"
                 sh """
