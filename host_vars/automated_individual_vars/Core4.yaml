@@ -75,5 +75,5 @@ interfaces:
 crypto:
   ssc_test: '151682397'
   ssc_prod: '786192652'
-  ssc_number_prod: 06
+  ssc_number_prod: 02
 

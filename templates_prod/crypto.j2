@@ -79,7 +79,7 @@
         <chain>
           <name>TP-self-signed-{{ host.facts.crypto.ssc_prod }}</name>
           <certificate>
-            <serial>01</serial>
+            <serial>{{ host.facts.crypto.ssc_number_prod }}</serial>
             <certtype>self-signed</certtype>
           </certificate>
         </chain>
