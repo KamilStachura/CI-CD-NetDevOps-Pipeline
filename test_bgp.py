@@ -130,7 +130,7 @@ def main():
     )
     # print_result(reset_bgp_result)
     bgp_expected_routers, bgp_expected_networks = get_bgp_information()
-    time.sleep(90)
+    time.sleep(120)
 
     bgp_routers_test_results = nr.run(
         task=bgp_routers_test, bgp_expected_routers=bgp_expected_routers, name="BGP ROUTERS TEST STARTED"

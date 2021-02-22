@@ -141,7 +141,7 @@ def main():
     # print_result(ospf_reset_result)
 
     # Wait a minute, to allow the devices to complete OSPF process
-    time.sleep(60)
+    time.sleep(90)
 
     # Run OSPF database test to verify if every device has all of the expected OSPF routes
     ospf_routing_test_results = nr.run(
