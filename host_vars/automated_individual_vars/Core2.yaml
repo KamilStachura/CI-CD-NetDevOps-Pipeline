@@ -117,4 +117,5 @@ crypto:
     transform_set: Core2-Core1
   ssc_test: '3141318562'
   ssc_prod: '1785531877'
+  ssc_number_prod: 06
 
