@@ -74,7 +74,7 @@ def main():
 
     # Instantiate Nornir with given config file
     nr = InitNornir(config_file="nornir_data/config.yaml")
-    nr = nr.filter(F(groups__contains="test"))
+    nr = nr.filter(F(groups__contains="test_subject"))
     # Assign the decrypted credentials to default username/password values for the devices in Nornir inventory
     nr.inventory.defaults.username = credentials["username"]
     nr.inventory.defaults.password = credentials["password"]
