@@ -8,7 +8,7 @@ import yaml
 
 
 def append_config(task, config):
-    with open(f"/home/kamil/Hons/host_vars/automated_individual_vars/{task.host}.yaml", "a") as yf:
+    with open(f"host_vars/automated_individual_vars/{task.host}.yaml", "a") as yf:
         yaml.safe_dump(config, yf, allow_unicode=True, sort_keys=False)
         yf.write("\n")
 
@@ -16,7 +16,7 @@ def append_config(task, config):
 # Check whether there is a current host_var file for the device and if there is, check if the feature is there
 # If the feature is not present in the file, append the file with the retrieved config
 def check_config(task, feature, config):
-    with open(f"/home/kamil/Hons/host_vars/automated_individual_vars/{task.host}.yaml") as yf:
+    with open(f"host_vars/automated_individual_vars/{task.host}.yaml") as yf:
         check_config = yaml.safe_load(yf)
         if check_config is None:
             append_config(task, config)
@@ -355,7 +355,7 @@ def main():
     credentials = get_credentials.get_credentials()
 
     # Instantiate Nornir with given config file
-    nr = InitNornir(config_file="/home/kamil/Hons/nornir_data/config.yaml")
+    nr = InitNornir(config_file="nornir_data/config.yaml")
     nr.inventory.defaults.username = credentials["username"]
     nr.inventory.defaults.password = credentials["password"]
 
