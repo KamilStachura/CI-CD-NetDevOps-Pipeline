@@ -13,7 +13,7 @@ import json
 # Select which features are to be pushed onto the devices
 # Load the host_vars from the devices' respective files & temporarily save them under the "facts" key of each device
 def load_vars(task):
-    features_to_push = ["crypto"]
+    features_to_push = ["ntp", "router", "interface", "crypto", "enable", "ip", "line"]
     host_data = task.run(task=load_yaml, file=f"host_vars/automated_individual_vars/{task.host}.yaml")
     task.host["facts"] = host_data.result
     for feature in features_to_push:
@@ -74,7 +74,6 @@ def main():
 
     # Instantiate Nornir with given config file
     nr = InitNornir(config_file="nornir_data/config.yaml")
-    nr = nr.filter(F(groups__contains="test_subject"))
     # Assign the decrypted credentials to default username/password values for the devices in Nornir inventory
     nr.inventory.defaults.username = credentials["username"]
     nr.inventory.defaults.password = credentials["password"]
