@@ -58,12 +58,12 @@ def config_unlock(task):
 
 # Create a fail report by providing the device name, feature and optional details
 # The report is sent via WebEx bot to specified roomID
-def fail_report(device_name, feature, details=None):
+def fail_report(device_name, stage=""):
     header = {"Authorization": "Bearer Zjc0YmQxODItNmYxNy00Y2FkLTk1NTEtMzY0MjQ2MmNjZjVjZjk5Y2QyYWItM2U2_PF84_consumer",
               "Content-Type": "application/json"}
 
     data = {"roomId": "Y2lzY29zcGFyazovL3VzL1JPT00vNTlmNGExYjAtMTA0ZS0xMWViLWJhMDYtN2I0ZTU2ODFiMzhi",
-            "text": f'{device_name} FAILED {feature} ON {datetime.now().strftime("%d/%m/%Y %H:%M:%S")}'}
+            "text": f'{device_name} FAILED {stage} ON {datetime.now().strftime("%d/%m/%Y %H:%M:%S")}'}
 
     return requests.post("https://api.ciscospark.com/v1/messages/", headers=header, data=json.dumps(data), verify=True)
 
