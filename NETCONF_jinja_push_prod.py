@@ -25,7 +25,7 @@ def configure_feature(task, feature):
     feature_get_template = task.run(task=template_file,
             name=f"Building {feature} configuration",
             template=f"{feature}.j2",
-            path="templates",)
+            path="templates_prod",)
 
     feature_template = feature_get_template.result
 
