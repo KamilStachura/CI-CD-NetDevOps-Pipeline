@@ -8,6 +8,15 @@ core_sb:
 test_subject:
   data:
     device_type: test
+test_subject2:
+  data:
+    device_type: test
+test_subject3:
+  data:
+    device_type: test
+test_subject4:
+  data:
+    device_type: test
 cisco_group:
   platform: 'cisco_xe'
   connection_options:
