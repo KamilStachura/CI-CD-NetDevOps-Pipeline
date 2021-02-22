@@ -10,7 +10,7 @@ import os
 import time
 
 
-# code to convert netmask ip to cidr number
+# Function to convert netmask ip to cidr number
 def netmask_to_cidr(netmask):
     '''
     :param netmask: netmask ip addr (eg: 255.255.255.0)
@@ -19,11 +19,14 @@ def netmask_to_cidr(netmask):
     return sum([bin(int(x)).count('1') for x in netmask.split('.')])
 
 
+# Retrieve the BGP information from the host_vars files and return it to the main function
 def get_bgp_information():
 
     bgp_expected_routers = {}
     bgp_expected_networks = []
     device_list = os.listdir("host_vars/automated_individual_vars")
+
+    # Open every device's config file and load it into the temp memory
     for device in device_list:
         with open(f"/home/kamil/Hons/host_vars/automated_individual_vars/{device}") as cf:
             device_config = yaml.safe_load(cf)
@@ -40,12 +43,14 @@ def get_bgp_information():
     return bgp_expected_routers, bgp_expected_networks
 
 
+# Issue the "clear ip bgp *" command to reset the bgp process
 def reset_bgp(task):
     response = task.run(
         netmiko_send_command, command_string="clear ip bgp *",
     )
 
 
+# Issue "show ip bgp summary" command on each device and compare the output with bgp_expected_routers
 def bgp_routers_test(task, bgp_expected_routers):
     missing_routers = {}
     bgp_routers = {}
@@ -73,6 +78,7 @@ def bgp_routers_test(task, bgp_expected_routers):
         return print(f"{task.host} Passed BGP Routers Test\n")
 
 
+# Issue "show ip bgp" command on each device and compare the output with bgp_expected_networks
 def bgp_networks_test(task, bgp_expected_networks):
     missing_networks = []
     bgp_networks = []

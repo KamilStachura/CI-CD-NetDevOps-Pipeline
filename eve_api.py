@@ -1,3 +1,7 @@
+# Author
+__author__ = 'OMZ'
+__date__= 'March 2020'
+
 import requests
 from datetime import datetime
 import time

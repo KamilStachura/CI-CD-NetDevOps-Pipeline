@@ -10,7 +10,7 @@ import os
 import time
 
 
-# Retrieve the OSPF information from the host_vars files
+# Retrieve the OSPF information from the host_vars files and return it to the main function
 def get_ospf_information():
 
     ospf_expected_database = []

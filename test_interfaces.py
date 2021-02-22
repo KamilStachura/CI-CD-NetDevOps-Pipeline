@@ -9,7 +9,7 @@ import os
 import yaml
 
 
-# Retrieve the interfaces information from the host_vars files
+# Retrieve the interfaces information from the host_vars files and return it to the main function
 def get_interface_information():
 
     devices_interfaces = {}
@@ -39,6 +39,7 @@ def get_interface_information():
 
 
 # Issue "show ip interface brief" command and use the output to compare it with the expected states of each interface
+# If an interface is not in the expected state, send a fail report with the details
 def interface_test(task, expected_interfaces):
     response = task.run(netmiko_send_command, command_string="show ip interface brief", use_genie=True)
     interfaces = response.result["interface"]
