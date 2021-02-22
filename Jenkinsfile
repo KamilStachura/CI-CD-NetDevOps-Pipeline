@@ -68,8 +68,9 @@ pipeline {
                     python3 /home/kamil/Hons/test_ospf.py
                     python3 /home/kamil/Hons/test_vpn.py
                     python3 /home/kamil/Hons/test_interfaces.py
-                    python3 /var/lib/jenkins/workspace/Hons_Project_dev/eve_api.py -ip 192.168.78.148 -t /Uni2021/hons_test.unl -d
                     """
+                    //python3 /var/lib/jenkins/workspace/Hons_Project_dev/eve_api.py -ip 192.168.78.148 -t /Uni2021/hons_test.unl -d
+                    //"""
             }
         }
     }
