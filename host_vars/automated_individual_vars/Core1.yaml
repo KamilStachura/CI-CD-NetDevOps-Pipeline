@@ -33,6 +33,9 @@ ospf:
   - ip: 172.168.100.0
     mask: 0.0.0.255
     area: '0'
+  - ip: 11.11.11.0
+    mask: 0.0.0.255
+    area: '0'
 
 ip:
   domain: cisco.com
@@ -81,6 +84,10 @@ interfaces:
   - name: '10'
     description: BGP Advertised Loopback
     ip: 10.10.10.1
+    mask: 255.255.255.0
+  - name: '11'
+    description: OSPF Advertised Loopback
+    ip: 11.11.11.1
     mask: 255.255.255.0
   - name: '100'
     description: VPN LAN Core1

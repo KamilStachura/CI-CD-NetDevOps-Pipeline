@@ -1,0 +1,379 @@
+2021-02-22 11:11:17,636 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-02-22 11:11:17,703 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_get.py", line 27, in netconf_get
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 165, in open
+    connection = NetconfScrape(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 27, in __init__
+    super().__init__(port=port, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/driver/driver.py", line 33, in __init__
+    super().__init__(**kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/driver/base_driver.py", line 203, in __init__
+    self.transport = self.transport_class(**self.transport_args)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 70, in __init__
+    cfg_port, cfg_user, cfg_private_key = self._process_ssh_config(host, ssh_config_file)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 116, in _process_ssh_config
+    ssh = SSHConfig(ssh_config_file)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/ssh_config.py", line 73, in __init__
+    with open(self.ssh_config_file, "r") as f:
+PermissionError: [Errno 13] Permission denied: '/home/kamil/.ssh/config'
+
+2021-02-22 11:11:17,703 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_get.py", line 27, in netconf_get
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 165, in open
+    connection = NetconfScrape(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 27, in __init__
+    super().__init__(port=port, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/driver/driver.py", line 33, in __init__
+    super().__init__(**kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/driver/base_driver.py", line 203, in __init__
+    self.transport = self.transport_class(**self.transport_args)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 70, in __init__
+    cfg_port, cfg_user, cfg_private_key = self._process_ssh_config(host, ssh_config_file)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 116, in _process_ssh_config
+    ssh = SSHConfig(ssh_config_file)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/ssh_config.py", line 73, in __init__
+    with open(self.ssh_config_file, "r") as f:
+PermissionError: [Errno 13] Permission denied: '/home/kamil/.ssh/config'
+
+2021-02-22 11:11:17,703 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_get.py", line 27, in netconf_get
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 165, in open
+    connection = NetconfScrape(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 27, in __init__
+    super().__init__(port=port, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/driver/driver.py", line 33, in __init__
+    super().__init__(**kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/driver/base_driver.py", line 203, in __init__
+    self.transport = self.transport_class(**self.transport_args)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 70, in __init__
+    cfg_port, cfg_user, cfg_private_key = self._process_ssh_config(host, ssh_config_file)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 116, in _process_ssh_config
+    ssh = SSHConfig(ssh_config_file)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/ssh_config.py", line 73, in __init__
+    with open(self.ssh_config_file, "r") as f:
+PermissionError: [Errno 13] Permission denied: '/home/kamil/.ssh/config'
+
+2021-02-22 11:11:17,704 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_get.py", line 27, in netconf_get
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 165, in open
+    connection = NetconfScrape(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 27, in __init__
+    super().__init__(port=port, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/driver/driver.py", line 33, in __init__
+    super().__init__(**kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/driver/base_driver.py", line 203, in __init__
+    self.transport = self.transport_class(**self.transport_args)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 70, in __init__
+    cfg_port, cfg_user, cfg_private_key = self._process_ssh_config(host, ssh_config_file)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 116, in _process_ssh_config
+    ssh = SSHConfig(ssh_config_file)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/ssh_config.py", line 73, in __init__
+    with open(self.ssh_config_file, "r") as f:
+PermissionError: [Errno 13] Permission denied: '/home/kamil/.ssh/config'
+
+2021-02-22 11:11:17,704 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 103, in get_ntp
+    result = task.run(task=netconf_get, filter_="/native/ntp", filter_type="xpath")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2021-02-22 11:11:17,704 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 103, in get_ntp
+    result = task.run(task=netconf_get, filter_="/native/ntp", filter_type="xpath")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2021-02-22 11:11:17,704 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 103, in get_ntp
+    result = task.run(task=netconf_get, filter_="/native/ntp", filter_type="xpath")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2021-02-22 11:11:17,705 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 103, in get_ntp
+    result = task.run(task=netconf_get, filter_="/native/ntp", filter_type="xpath")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2021-02-22 11:11:17,753 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-02-22 11:11:17,753 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-02-22 11:11:17,753 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-02-22 11:11:17,754 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts
+2021-02-22 11:12:25,912 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-02-22 11:12:35,942 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/socket.py", line 115, in socket_open
+    self.sock.connect((self.host, self.port))
+socket.timeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_get.py", line 27, in netconf_get
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 136, in open
+    self.socket.socket_open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/socket.py", line 129, in socket_open
+    ) from exc
+scrapli.exceptions.ScrapliTimeout: Timed out trying to open socket to 192.168.78.24 on port 830
+
+2021-02-22 11:12:35,943 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/socket.py", line 115, in socket_open
+    self.sock.connect((self.host, self.port))
+socket.timeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_get.py", line 27, in netconf_get
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 136, in open
+    self.socket.socket_open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/socket.py", line 129, in socket_open
+    ) from exc
+scrapli.exceptions.ScrapliTimeout: Timed out trying to open socket to 192.168.78.22 on port 830
+
+2021-02-22 11:12:35,943 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 103, in get_ntp
+    result = task.run(task=netconf_get, filter_="/native/ntp", filter_type="xpath")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2021-02-22 11:12:35,943 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 103, in get_ntp
+    result = task.run(task=netconf_get, filter_="/native/ntp", filter_type="xpath")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2021-02-22 11:12:35,983 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-02-22 11:12:36,185 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-02-22 11:12:36,350 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-02-22 11:12:36,569 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts
+2021-02-22 11:15:45,456 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-02-22 11:31:39,028 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-02-22 11:31:49,103 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/socket.py", line 115, in socket_open
+    self.sock.connect((self.host, self.port))
+socket.timeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_get.py", line 27, in netconf_get
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 136, in open
+    self.socket.socket_open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/socket.py", line 129, in socket_open
+    ) from exc
+scrapli.exceptions.ScrapliTimeout: Timed out trying to open socket to 192.168.78.24 on port 830
+
+2021-02-22 11:31:49,103 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/socket.py", line 115, in socket_open
+    self.sock.connect((self.host, self.port))
+socket.timeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_get.py", line 27, in netconf_get
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 136, in open
+    self.socket.socket_open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/socket.py", line 129, in socket_open
+    ) from exc
+scrapli.exceptions.ScrapliTimeout: Timed out trying to open socket to 192.168.78.22 on port 830
+
+2021-02-22 11:31:49,104 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 103, in get_ntp
+    result = task.run(task=netconf_get, filter_="/native/ntp", filter_type="xpath")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2021-02-22 11:31:49,106 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 103, in get_ntp
+    result = task.run(task=netconf_get, filter_="/native/ntp", filter_type="xpath")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2021-02-22 11:31:56,096 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-02-22 11:32:02,776 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-02-22 11:32:05,509 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-02-22 11:32:09,627 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts
+2021-02-22 13:13:30,607 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-02-22 13:13:40,676 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netconf_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/socket.py", line 115, in socket_open
+    self.sock.connect((self.host, self.port))
+socket.timeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_get.py", line 27, in netconf_get
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 136, in open
+    self.socket.socket_open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/socket.py", line 129, in socket_open
+    ) from exc
+scrapli.exceptions.ScrapliTimeout: Timed out trying to open socket to 192.168.78.22 on port 830
+
+2021-02-22 13:13:40,677 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 103, in get_ntp
+    result = task.run(task=netconf_get, filter_="/native/ntp", filter_type="xpath")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netconf_get (failed)
+
+
+2021-02-22 13:13:40,715 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-02-22 13:13:40,977 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-02-22 13:13:41,169 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-02-22 13:13:41,460 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts
+2021-02-22 13:14:22,878 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-02-22 13:14:24,458 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-02-22 13:14:24,768 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-02-22 13:14:25,013 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-02-22 13:14:25,346 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts
+2021-02-22 13:14:39,867 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-02-22 13:14:41,041 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-02-22 13:14:41,351 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-02-22 13:14:41,577 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-02-22 13:14:41,912 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts
