@@ -1,0 +1,74 @@
+<config>
+<native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+<interface operation="replace">
+{% for int in host.facts.interfaces.GigEthernet %}
+<GigabitEthernet>
+<name>{{ int.name }}</name>
+{% if int.description is defined %}
+<description>{{ int.description }}</description>
+{% endif %}
+{% if int.shutdown is defined %}
+<shutdown/>
+{% endif %}
+{% if int.ip is defined %}
+<ip>
+{% if int.vrf is defined %}
+<vrf>
+<forwarding>
+<word>{{ int.vrf }}</word>
+</forwarding>
+</vrf>
+{% endif %}
+<address>
+<primary>
+<address>{{ int.ip }}</address>
+<mask>{{ int.mask }}</mask>
+</primary>
+</address>
+</ip>
+{% elif int.unnumbered is defined %}
+<ip>
+<unnumbered>{{ int.unnumbered }}</unnumbered>
+<ospf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ospf">
+<network>{{ int.ospf_network }}</network>
+</ospf>
+</ip>
+{% endif %}
+<mop>
+<enabled>false</enabled>
+<sysid>false</sysid>
+</mop>
+{% if int.crypto_map is defined %}
+<crypto xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-crypto">
+<map>
+<tag>{{ int.crypto_map }}</tag>
+</map>
+</crypto>
+{% endif %}
+<negotiation xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+<auto>true</auto>
+</negotiation>
+</GigabitEthernet>
+{% endfor %}
+{% for int in host.facts.interfaces.Loopback %}
+<Loopback>
+<name>{{ int.name }}</name>
+<description>{{ int.description }}</description>
+<ip>
+<address>
+<primary>
+<address>{{ int.ip }}</address>
+<mask>{{ int.mask }}</mask>
+</primary>
+</address>
+</ip>
+</Loopback>
+{% endfor %}
+</interface>
+</native>
+</config>
+
+
+
+
+
