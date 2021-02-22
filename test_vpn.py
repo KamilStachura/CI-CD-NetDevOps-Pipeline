@@ -10,7 +10,7 @@ import time
 
 # Issue "show crypto ipsec sa" command on each device and verify if the packets have been encapsulated
 def verify_vpn_tunnel(task):
-    time.sleep(5)
+    time.sleep(10)
     response = task.run(
         netmiko_send_command, command_string="show crypto ipsec sa",
     )

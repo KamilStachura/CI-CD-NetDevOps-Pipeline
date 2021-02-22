@@ -106,6 +106,7 @@ crypto:
   policy:
   - number: '1'
     auth: pre-share
+    encryption_aes: 256
     group: '24'
     hash: sha512
     lifetime: '3600'
