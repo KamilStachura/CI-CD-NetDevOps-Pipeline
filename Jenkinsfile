@@ -30,7 +30,7 @@ pipeline {
                 echo "Deploying Configuration To The Testing Lab"
                 sh """
                 source /home/kamil/yetAnotherVirtualEnv/testing_env/bin/activate
-                python3 /var/lib/jenkins/workspace/Hons_Project_master/NETCONF_jinja_push.py
+                python3 /var/lib/jenkins/workspace/Hons_Project_master/NETCONF_jinja_push_prod.py
                 """
             }
         }
@@ -40,7 +40,7 @@ pipeline {
                 echo "Deploying Configuration To The Testing Lab"
                 sh """
                 source /home/kamil/yetAnotherVirtualEnv/testing_env/bin/activate
-                python3 /var/lib/jenkins/workspace/Hons_Project_dev/NETCONF_jinja_push.py
+                python3 /var/lib/jenkins/workspace/Hons_Project_dev/NETCONF_jinja_push_test.py
                 """
             }
         }
