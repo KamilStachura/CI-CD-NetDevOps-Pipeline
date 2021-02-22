@@ -80,25 +80,25 @@ def main():
     nr.inventory.defaults.password = credentials["password"]
 
     # Lock the configuration of all devices to prevent other users from issuing any changes
-    lock = nr.run(task=config_lock)
-    print_result(lock)
+    #lock = nr.run(task=config_lock)
+    #print_result(lock)
 
     # Load host variables, build templates for all specified features and push to the candidate configuration
-    results = nr.run(task=load_vars)
-    print_result(results)
+    #results = nr.run(task=load_vars)
+    #print_result(results)
 
     # Verify if any config build or config push has failed
     # If everything was successful, commit the configuration from candidate to running
     # Otherwise, discard the candidate configuration and issue a fail report
-    failed_changes = nr.data.failed_hosts
-    if failed_changes:
-        revert = nr.run(task=config_discard)
-        print_result(revert)
-        for device in failed_changes:
-            fail_report(device, results[device].exception,)
-    else:
-        commit_config = nr.run(task=config_commit)
-        print_result(commit_config)
+    # failed_changes = nr.data.failed_hosts
+    # if failed_changes:
+    #     revert = nr.run(task=config_discard)
+    #     print_result(revert)
+    #     for device in failed_changes:
+    #         fail_report(device, results[device].exception,)
+    # else:
+    #     commit_config = nr.run(task=config_commit)
+    #     print_result(commit_config)
 
     # Unlock the devices configuration
     unlock = nr.run(task=config_unlock)
