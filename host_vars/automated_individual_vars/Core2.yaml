@@ -115,5 +115,5 @@ crypto:
     peer: 1.1.1.1
     pfs: group24
     transform_set: Core2-Core1
-  self_signed_certificate: '3141318562'
+#  self_signed_certificate: '3141318562'
 
