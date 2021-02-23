@@ -115,6 +115,6 @@ crypto:
     peer: 1.1.1.1
     pfs: group24
     transform_set: Core2-Core1
-  self_signed_certificate_test: '3141318562'
-  self_signed_certificate_prod: '1785531877'
+  ssc_test: '3141318562'
+  ssc_prod: '1785531877'
 

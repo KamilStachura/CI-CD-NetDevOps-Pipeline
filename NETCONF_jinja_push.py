@@ -25,7 +25,7 @@ def configure_feature(task, feature):
     feature_get_template = task.run(task=template_file,
             name=f"Building {feature} configuration",
             template=f"{feature}.j2",
-            path="templates_prod",)
+            path="templates",)
 
     feature_template = feature_get_template.result
 
@@ -74,10 +74,10 @@ def main():
 
     # Instantiate Nornir with given config file
     nr = InitNornir(config_file="nornir_data/config.yaml")
-
     # Assign the decrypted credentials to default username/password values for the devices in Nornir inventory
     nr.inventory.defaults.username = credentials["username"]
     nr.inventory.defaults.password = credentials["password"]
+    nr = nr.filter(F(groups__contains="test_subject"))
 
     # Lock the configuration of all devices to prevent other users from issuing any changes
     lock = nr.run(task=config_lock)

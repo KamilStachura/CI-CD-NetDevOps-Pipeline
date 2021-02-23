@@ -568,3 +568,1349 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configurat
 
 2021-02-22 20:08:09,869 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
 2021-02-22 20:08:09,869 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 4 hosts
+2021-02-22 20:17:40,458 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 20:17:40,509 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:17:40,509 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:17:40,509 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:17:40,509 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:17:40,521 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:17:40,521 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:17:40,522 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:17:40,522 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:17:40,551 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 20:17:40,551 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 4 hosts
+2021-02-22 20:20:17,866 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 20:20:19,100 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 20:20:20,301 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-02-22 20:20:21,754 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-02-22 20:32:40,292 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 20:32:42,179 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:32:42,179 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:32:42,180 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:32:42,180 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:32:42,181 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:32:42,181 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:32:42,182 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:32:42,182 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:32:42,236 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 20:32:42,237 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 4 hosts
+2021-02-22 20:32:51,400 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 20:32:51,437 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:32:51,438 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:32:51,438 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:32:51,438 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:32:51,443 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:32:51,443 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:32:51,448 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:32:51,448 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:32:51,515 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 20:32:51,515 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 4 hosts
+2021-02-22 20:33:03,767 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 20:33:03,802 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:33:03,802 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:33:03,807 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:33:03,807 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:33:03,807 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:33:03,808 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:33:03,810 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:33:03,810 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:33:03,871 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 20:33:03,872 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 4 hosts
+2021-02-22 20:37:33,080 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 20:37:34,206 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 20:37:36,127 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-02-22 20:37:36,310 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 20:37:36,333 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 20:37:36,346 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 20:37:36,350 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 20:37:36,395 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-02-22 20:37:56,260 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 20:37:58,095 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:37:58,095 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:37:58,096 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:37:58,096 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:37:58,096 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:37:58,097 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:37:58,100 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-22 20:37:58,100 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-22 20:37:58,161 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 20:37:58,162 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 4 hosts
+2021-02-22 20:50:28,807 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 20:50:29,801 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 20:50:31,101 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-02-22 20:50:31,304 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 20:50:31,311 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 20:50:31,336 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 20:50:31,368 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 20:50:31,373 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-02-22 20:51:38,229 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 20:51:39,403 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 20:51:40,639 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-02-22 20:51:40,814 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 20:51:40,821 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 20:51:40,862 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 20:51:40,891 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 20:51:40,896 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-02-22 20:52:24,261 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 20:52:25,378 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 20:52:26,418 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-02-22 20:52:26,559 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-02-22 20:54:09,667 -  nornir.core -  WARNING -        run() - Task 'config_lock' has not been run – 0 hosts selected
+2021-02-22 20:54:09,668 -  nornir.core -  WARNING -        run() - Task 'load_vars' has not been run – 0 hosts selected
+2021-02-22 20:54:09,669 -  nornir.core -  WARNING -        run() - Task 'config_commit' has not been run – 0 hosts selected
+2021-02-22 20:54:09,669 -  nornir.core -  WARNING -        run() - Task 'config_unlock' has not been run – 0 hosts selected
+2021-02-22 20:54:54,279 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-22 20:54:54,975 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-22 20:54:55,139 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 1 hosts
+2021-02-22 20:54:55,405 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 20:54:55,410 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 1 hosts
+2021-02-22 21:01:29,637 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-22 21:01:30,309 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-22 21:01:30,445 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 1 hosts
+2021-02-22 21:01:30,597 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:01:30,599 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 1 hosts
+2021-02-22 21:10:33,969 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-22 21:10:34,652 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-22 21:10:34,800 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 1 hosts
+2021-02-22 21:10:34,921 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:10:34,922 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 1 hosts
+2021-02-22 21:21:04,971 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-22 21:21:06,863 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-22 21:21:07,028 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 1 hosts
+2021-02-22 21:21:07,478 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:21:07,480 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 1 hosts
+2021-02-22 21:24:41,261 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-22 21:24:41,994 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-22 21:24:42,143 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 1 hosts
+2021-02-22 21:24:42,273 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:24:42,275 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 1 hosts
+2021-02-22 21:27:29,461 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-22 21:27:30,120 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-22 21:27:30,261 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 1 hosts
+2021-02-22 21:27:30,363 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 1 hosts
+2021-02-22 21:31:37,490 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 21:31:38,639 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 21:31:39,826 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-02-22 21:31:40,442 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:31:40,448 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:31:40,614 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:31:40,618 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-02-22 21:32:06,632 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 21:32:07,733 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 21:32:08,957 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-02-22 21:32:09,110 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:32:09,158 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:32:09,244 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:32:09,249 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-02-22 21:32:22,396 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 21:32:23,599 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 21:32:24,978 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-02-22 21:32:25,139 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:32:25,142 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:32:25,177 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:32:25,181 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-02-22 21:32:51,609 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 21:32:52,617 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 21:32:53,786 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-02-22 21:32:53,980 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:32:53,991 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:32:54,196 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:32:54,204 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-02-22 21:37:30,546 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 21:37:31,600 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 21:37:32,806 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-02-22 21:37:33,018 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:37:33,031 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:37:33,133 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:37:33,387 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:37:33,393 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-02-22 21:43:43,073 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 21:43:44,184 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 21:43:46,110 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-02-22 21:43:46,268 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:43:46,302 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:43:46,341 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:43:46,371 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:43:46,418 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-02-22 21:46:59,492 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 21:47:00,498 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 21:47:02,450 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-02-22 21:47:02,614 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:47:02,614 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:47:02,636 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:47:02,687 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:47:02,735 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-02-22 21:51:20,610 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 21:51:21,804 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 21:51:23,790 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-02-22 21:51:23,973 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:51:23,981 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:51:23,991 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:51:24,016 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:51:24,069 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-02-22 21:51:26,628 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 21:51:27,654 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 21:51:29,539 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-02-22 21:51:29,683 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:51:29,694 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:51:29,705 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:51:29,756 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-22 21:51:29,807 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-02-22 21:58:27,366 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-22 21:58:28,042 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-22 21:58:28,931 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 1 hosts
+2021-02-22 21:58:29,057 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 1 hosts
+2021-02-22 22:41:30,548 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-22 22:41:31,913 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-22 22:41:37,671 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-02-22 22:41:41,301 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
