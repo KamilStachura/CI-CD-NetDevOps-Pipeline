@@ -27,7 +27,6 @@ def vpn_test(task):
     clear_up = task.run(
         netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
     )
-    # time.sleep(120)
     if task.host.name == "Core1":
         response = task.run(
             netmiko_send_command, command_string="ping 172.168.200.1 source 172.168.100.1 repeat 5", expect_string=r"."
