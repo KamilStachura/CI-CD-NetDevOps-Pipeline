@@ -3959,3 +3959,1491 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configurat
 2021-02-23 14:37:36,395 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
 2021-02-23 14:37:38,270 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
 2021-02-23 14:37:38,626 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-02-23 14:45:27,289 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-02-23 14:45:27,301 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:45:27,301 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:45:27,301 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:45:27,301 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:45:27,302 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:45:27,302 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:45:27,302 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:45:27,303 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:46:26,206 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-02-23 14:46:26,213 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:46:26,213 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:46:26,213 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:46:26,213 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:46:26,214 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:46:26,214 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:46:26,214 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:46:26,214 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:47:05,602 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-02-23 14:47:05,609 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:47:05,609 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:47:05,610 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:47:05,610 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:47:05,610 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:47:05,611 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:47:05,611 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:47:05,611 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:48:09,623 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-02-23 14:48:09,630 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:48:09,631 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:48:09,631 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:48:09,631 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:48:09,631 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:48:09,632 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:48:09,632 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:48:09,632 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:50:25,766 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-02-23 14:50:25,774 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:50:25,774 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:50:25,774 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:50:25,775 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:50:25,775 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:50:25,775 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:50:25,775 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:50:25,776 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:50:48,400 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-02-23 14:50:48,408 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:50:48,408 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:50:48,409 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:50:48,409 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:50:48,410 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:50:48,410 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:50:48,410 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:50:48,411 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:51:44,384 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-02-23 14:51:44,392 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:51:44,392 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:51:44,393 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:51:44,393 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:51:44,393 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:51:44,393 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:51:44,393 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:51:44,393 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 28, in vpn_test
+    netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:52:46,004 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-02-23 14:53:40,750 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-02-23 14:53:40,758 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:53:40,758 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:53:40,758 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:53:40,758 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:53:40,759 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 27, in vpn_test
+    clear_up = task.run(netmiko_send_command, command_string="clear crypto sa", expect_string=r".")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:53:40,759 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 27, in vpn_test
+    clear_up = task.run(netmiko_send_command, command_string="clear crypto sa", expect_string=r".")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:53:40,759 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 27, in vpn_test
+    clear_up = task.run(netmiko_send_command, command_string="clear crypto sa", expect_string=r".")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:53:40,759 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 27, in vpn_test
+    clear_up = task.run(netmiko_send_command, command_string="clear crypto sa", expect_string=r".")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:55:24,291 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-02-23 14:55:24,299 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:55:24,299 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:55:24,299 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:55:24,300 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 315, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 926, in establish_connection
+    ssh_connect_params = self._connect_params_dict()
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 883, in _connect_params_dict
+    conn_dict = self._use_ssh_config(conn_dict)
+  File "/home/kamil/.local/lib/python3.6/site-packages/netmiko/base_connection.py", line 825, in _use_ssh_config
+    full_path = path.abspath(path.expanduser(self.ssh_config_file))
+  File "/usr/lib/python3.6/posixpath.py", line 235, in expanduser
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not bool
+
+2021-02-23 14:55:24,300 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 27, in vpn_test
+    clear_up = task.run(netmiko_send_command, command_string="clear crypto sa", expect_string=r".")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:55:24,300 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 27, in vpn_test
+    clear_up = task.run(netmiko_send_command, command_string="clear crypto sa", expect_string=r".")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:55:24,300 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 27, in vpn_test
+    clear_up = task.run(netmiko_send_command, command_string="clear crypto sa", expect_string=r".")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:55:24,300 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 27, in vpn_test
+    clear_up = task.run(netmiko_send_command, command_string="clear crypto sa", expect_string=r".")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-02-23 14:55:46,772 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-02-23 14:56:41,137 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts

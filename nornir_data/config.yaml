@@ -10,6 +10,3 @@ runner:
     plugin: threaded
     options:
         num_workers: 100
-
-ssh:
-    config_file: True

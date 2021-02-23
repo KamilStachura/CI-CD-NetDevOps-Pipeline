@@ -24,9 +24,7 @@ def verify_vpn_tunnel(task):
 
 # Issue "clear crypto sa" command on specified devices and initiate the vpn tunnel by sending interesting traffic
 def vpn_test(task):
-    clear_up = task.run(
-        netmiko_send_command, command_string="clear crypto sa", expect_string=r"."
-    )
+    clear_up = task.run(netmiko_send_command, command_string="clear crypto sa", expect_string=r".")
     if task.host.name == "Core1":
         response = task.run(
             netmiko_send_command, command_string="ping 172.168.200.1 source 172.168.100.1 repeat 5", expect_string=r"."
