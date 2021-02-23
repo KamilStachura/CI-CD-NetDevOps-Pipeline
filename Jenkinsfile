@@ -6,22 +6,22 @@ pipeline {
             when { expression { env.BRANCH_NAME == 'master'} }
             steps {
                 echo "Building Testing Lab!"
-                /*sh """
+                sh """
                 source /home/kamil/yetAnotherVirtualEnv/testing_env/bin/activate
                 python3 /var/lib/jenkins/workspace/Hons_Project_master/eve_api.py -ip 192.168.78.148 -t /Uni2021/hons_prod.unl -u
                 """
-                sleep 480*/
+                sleep 480
             }
         }
         stage("Build_Dev") {
             when { expression { env.BRANCH_NAME == 'dev'} }
             steps {
                 echo "Building Testing Lab!"
-                /*sh """
+                sh """
                 source /home/kamil/yetAnotherVirtualEnv/testing_env/bin/activate
                 python3 /var/lib/jenkins/workspace/Hons_Project_dev/eve_api.py -ip 192.168.78.148 -t /Uni2021/hons_test.unl -u
                 """
-                sleep 480*/
+                sleep 480
             }
         }
         stage("Deploy_Prod") {
@@ -54,9 +54,8 @@ pipeline {
                 python3 /home/kamil/Hons/test_ospf.py
                 python3 /home/kamil/Hons/test_vpn.py
                 python3 /home/kamil/Hons/test_interfaces.py
-
+                python3 /var/lib/jenkins/workspace/Hons_Project_master/eve_api.py -ip 192.168.78.148 -t /Uni2021/hons_prod.unl -d
                 """
-                //python3 /var/lib/jenkins/workspace/Hons_Project_master/eve_api.py -ip 192.168.78.148 -t /Uni2021/hons_prod.unl -d
             }
         }
         stage("Test_Dev") {
@@ -69,9 +68,8 @@ pipeline {
                     python3 /home/kamil/Hons/test_ospf.py
                     python3 /home/kamil/Hons/test_vpn.py
                     python3 /home/kamil/Hons/test_interfaces.py
+                    python3 /var/lib/jenkins/workspace/Hons_Project_dev/eve_api.py -ip 192.168.78.148 -t /Uni2021/hons_test.unl -d
                     """
-                    //python3 /var/lib/jenkins/workspace/Hons_Project_dev/eve_api.py -ip 192.168.78.148 -t /Uni2021/hons_test.unl -d
-                    //"""
             }
         }
     }
