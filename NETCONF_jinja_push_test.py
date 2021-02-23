@@ -77,7 +77,7 @@ def main():
     # Assign the decrypted credentials to default username/password values for the devices in Nornir inventory
     nr.inventory.defaults.username = credentials["username"]
     nr.inventory.defaults.password = credentials["password"]
-    nr = nr.filter(F(groups__contains="test_subject"))
+    #nr = nr.filter(F(groups__contains="test_subject"))
 
     # Lock the configuration of all devices to prevent other users from issuing any changes
     lock = nr.run(task=config_lock)
