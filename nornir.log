@@ -1914,3 +1914,2048 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configu
 2021-02-22 22:41:31,913 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
 2021-02-22 22:41:37,671 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
 2021-02-22 22:41:41,301 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-02-23 12:55:15,055 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 12:55:15,818 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 12:55:16,872 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 1 hosts
+2021-02-23 12:55:17,522 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 51, in config_commit
+    task.run(task=netconf_commit, name="Committing Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Committing Candidate Configuration (failed)
+
+
+2021-02-23 12:55:17,531 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 1 hosts
+2021-02-23 12:57:21,611 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-23 12:57:21,874 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 12:57:21,874 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.24
+
+2021-02-23 12:57:21,875 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 12:57:21,875 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 12:57:23,503 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/cssh2.py", line 26, in open_netconf
+    super().open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 146, in open
+    raise exc
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 141, in open
+    self.session.handshake(self.socket.sock)
+  File "ssh2/session.pyx", line 138, in ssh2.session.Session.handshake
+  File "ssh2/utils.pyx", line 156, in ssh2.utils.handle_error_codes
+ssh2.exceptions.SocketDisconnectError
+
+2021-02-23 12:57:23,503 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 12:57:23,558 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-23 12:57:24,676 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 4 hosts
+2021-02-23 12:58:30,437 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 12:58:30,673 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 12:58:30,674 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 12:58:30,697 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 12:58:30,697 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 12:59:38,061 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 12:59:38,299 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 12:59:38,300 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 12:59:38,324 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 12:59:38,324 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:01:05,575 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:01:05,807 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 13:01:05,807 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:01:05,832 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:01:05,833 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:03:10,517 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:03:10,747 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 13:03:10,747 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:03:10,771 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:03:10,771 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:04:55,313 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:04:55,553 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 13:04:55,553 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:04:55,557 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:04:55,558 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:10:46,434 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:10:46,564 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 115, in _authenticate
+    raise ScrapliAuthenticationFailed(msg) from exc
+scrapli.exceptions.ScrapliAuthenticationFailed: Failed to open connection to host 192.168.78.23. Do you need to disable `auth_strict_key`?
+
+2021-02-23 13:10:46,564 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:10:46,586 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:10:46,587 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:12:23,335 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:12:23,467 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 115, in _authenticate
+    raise ScrapliAuthenticationFailed(msg) from exc
+scrapli.exceptions.ScrapliAuthenticationFailed: Failed to open connection to host 192.168.78.23. Do you need to disable `auth_strict_key`?
+
+2021-02-23 13:12:23,468 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:12:23,487 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:12:23,489 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:13:43,063 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:13:43,195 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 115, in _authenticate
+    raise ScrapliAuthenticationFailed(msg) from exc
+scrapli.exceptions.ScrapliAuthenticationFailed: Failed to open connection to host 192.168.78.23. Do you need to disable `auth_strict_key`?
+
+2021-02-23 13:13:43,196 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:13:43,218 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:13:43,219 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:14:04,918 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:14:05,048 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 115, in _authenticate
+    raise ScrapliAuthenticationFailed(msg) from exc
+scrapli.exceptions.ScrapliAuthenticationFailed: Failed to open connection to host 192.168.78.23. Do you need to disable `auth_strict_key`?
+
+2021-02-23 13:14:05,049 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:14:05,072 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:14:05,073 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:18:32,258 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:18:32,390 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 115, in _authenticate
+    raise ScrapliAuthenticationFailed(msg) from exc
+scrapli.exceptions.ScrapliAuthenticationFailed: Failed to open connection to host 192.168.78.23. Do you need to disable `auth_strict_key`?
+
+2021-02-23 13:18:32,390 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:18:32,412 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:18:32,413 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:22:05,053 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:22:05,186 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 115, in _authenticate
+    raise ScrapliAuthenticationFailed(msg) from exc
+scrapli.exceptions.ScrapliAuthenticationFailed: Failed to open connection to host 192.168.78.23. Do you need to disable `auth_strict_key`?
+
+2021-02-23 13:22:05,187 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:22:05,210 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:22:05,210 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:27:14,549 -  nornir.core -  WARNING -        run() - Task 'config_lock' has not been run – 0 hosts selected
+2021-02-23 13:27:14,551 -  nornir.core -  WARNING -        run() - Task 'load_vars' has not been run – 0 hosts selected
+2021-02-23 13:27:14,551 -  nornir.core -  WARNING -        run() - Task 'config_commit' has not been run – 0 hosts selected
+2021-02-23 13:27:14,551 -  nornir.core -  WARNING -        run() - Task 'config_unlock' has not been run – 0 hosts selected
+2021-02-23 13:27:23,489 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:27:23,537 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 165, in open
+    connection = NetconfScrape(**parameters)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 27, in __init__
+    super().__init__(port=port, **kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/driver/driver.py", line 33, in __init__
+    super().__init__(**kwargs)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/driver/base_driver.py", line 203, in __init__
+    self.transport = self.transport_class(**self.transport_args)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 70, in __init__
+    cfg_port, cfg_user, cfg_private_key = self._process_ssh_config(host, ssh_config_file)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_ssh2/transport/cssh2.py", line 116, in _process_ssh_config
+    ssh = SSHConfig(ssh_config_file)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/ssh_config.py", line 73, in __init__
+    with open(self.ssh_config_file, "r") as f:
+PermissionError: [Errno 13] Permission denied: '/home/kamil/.ssh/config'
+
+2021-02-23 13:27:23,538 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:27:23,552 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:27:23,552 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:28:11,607 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:28:14,431 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:28:16,131 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 1 hosts
+2021-02-23 13:28:17,630 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 1 hosts
+2021-02-23 13:28:23,866 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:28:25,430 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:28:30,001 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 1 hosts
+2021-02-23 13:28:31,757 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 1 hosts
+2021-02-23 13:28:38,494 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:28:39,733 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 13:28:39,734 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:28:39,756 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:28:39,756 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:28:45,359 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:28:45,897 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.24
+
+2021-02-23 13:28:45,898 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:28:45,921 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:28:45,921 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:32:30,126 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:32:30,359 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 13:32:30,360 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:32:30,384 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:32:30,384 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:34:21,955 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:34:22,187 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 13:34:22,187 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:34:22,211 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:34:22,212 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:34:42,725 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:34:42,956 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 13:34:42,956 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:34:42,979 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:34:42,980 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:35:34,098 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:35:34,330 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 13:35:34,330 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:35:34,356 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:35:34,356 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:35:45,698 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:35:45,932 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 13:35:45,933 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:35:45,957 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:35:45,957 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:37:06,091 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:37:06,845 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:37:07,929 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 1 hosts
+2021-02-23 13:37:08,033 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 1 hosts
+2021-02-23 13:39:34,705 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:39:35,380 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:39:36,464 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 1 hosts
+2021-02-23 13:39:36,569 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 1 hosts
+2021-02-23 13:44:22,925 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:44:23,612 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:44:24,690 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 1 hosts
+2021-02-23 13:44:24,795 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 1 hosts
+2021-02-23 13:44:30,219 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:44:30,352 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 13:44:30,352 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:44:30,374 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:44:30,374 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:48:57,838 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:48:58,076 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 13:48:58,077 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:48:58,099 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:48:58,100 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:52:33,992 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:52:34,231 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.24
+
+2021-02-23 13:52:34,231 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:52:34,255 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:52:34,255 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:57:12,508 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:57:12,746 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 13:57:12,747 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 13:57:12,771 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:57:12,771 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 13:58:31,337 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 13:58:32,103 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 13:58:33,225 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 1 hosts
+2021-02-23 13:58:33,330 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 1 hosts
+2021-02-23 14:00:44,161 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 14:00:44,398 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 14:00:44,399 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 14:00:44,423 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 14:00:44,424 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 14:02:05,078 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 14:02:05,312 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 14:02:05,313 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 14:02:05,338 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 14:02:05,338 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 14:06:41,504 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 14:06:41,740 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 14:06:41,741 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 14:06:41,766 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 14:06:41,767 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 14:06:56,443 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 14:06:57,188 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 14:06:58,360 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 1 hosts
+2021-02-23 14:06:58,465 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 1 hosts
+2021-02-23 14:14:45,569 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 14:14:47,451 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 14:14:48,617 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 1 hosts
+2021-02-23 14:14:48,901 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 1 hosts
+2021-02-23 14:14:54,289 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 14:14:56,152 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 14:14:57,240 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 1 hosts
+2021-02-23 14:14:57,495 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 1 hosts
+2021-02-23 14:15:05,195 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 14:15:06,435 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 14:15:06,436 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 14:15:06,459 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 14:15:06,459 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 14:18:46,296 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 14:18:46,532 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 14:18:46,533 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 14:18:46,558 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 14:18:46,559 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 14:25:40,855 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 14:25:41,092 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 14:25:41,092 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 14:25:41,116 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 14:25:41,117 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 14:29:55,742 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 1 hosts
+2021-02-23 14:29:56,084 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'Locking Candidate Configuration' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 395, in read
+    s = self.fileobj.read1(size)
+OSError: [Errno 5] Input/output error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 103, in _authenticate
+    new_output = self.session.read()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/ptyprocess.py", line 400, in read
+    raise EOFError("End Of File (EOF). Exception style platform.")
+EOFError: End Of File (EOF). Exception style platform.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/tasks/netconf_lock.py", line 25, in netconf_lock
+    scrapli_conn = task.host.get_connection("scrapli_netconf", task.nornir.config)
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir_scrapli/connection.py", line 166, in open
+    connection.open()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/driver/driver.py", line 64, in open
+    login_bytes = self.transport.open_netconf()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 38, in open_netconf
+    login_bytes = self._open_netconf_pty()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 58, in _open_netconf_pty
+    login_bytes: bytes = self._authenticate()
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 114, in decorate
+    wrapped_func=wrapped_func, args=args, kwargs=kwargs
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/decorators.py", line 286, in multiprocessing_timeout
+    result = future.get(timeout=self.timeout_duration)
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 644, in get
+    raise self._value
+  File "/usr/lib/python3.6/multiprocessing/pool.py", line 119, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli_netconf/transport/systemssh.py", line 107, in _authenticate
+    self._ssh_message_handler(output=output)
+  File "/home/kamil/.local/lib/python3.6/site-packages/scrapli/transport/systemssh.py", line 286, in _ssh_message_handler
+    raise ScrapliAuthenticationFailed(msg)
+scrapli.exceptions.ScrapliAuthenticationFailed: Host key verification failed for host 192.168.78.23
+
+2021-02-23 14:29:56,085 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'config_lock' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_prod.py", line 41, in config_lock
+    task.run(task=netconf_lock, target="candidate", name="Locking Candidate Configuration")
+  File "/home/kamil/.local/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Locking Candidate Configuration (failed)
+
+
+2021-02-23 14:29:56,108 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 1 hosts
+2021-02-23 14:29:56,109 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 1 hosts
+2021-02-23 14:37:01,007 -  nornir.core -  WARNING -        run() - Task 'config_lock' has not been run – 0 hosts selected
+2021-02-23 14:37:01,008 -  nornir.core -  WARNING -        run() - Task 'load_vars' has not been run – 0 hosts selected
+2021-02-23 14:37:01,009 -  nornir.core -  WARNING -        run() - Task 'config_commit' has not been run – 0 hosts selected
+2021-02-23 14:37:01,009 -  nornir.core -  WARNING -        run() - Task 'config_unlock' has not been run – 0 hosts selected
+2021-02-23 14:37:35,339 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-02-23 14:37:36,395 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-02-23 14:37:38,270 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-02-23 14:37:38,626 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts

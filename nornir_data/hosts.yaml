@@ -10,14 +10,13 @@ Core2:
         groups:
           - core_nb
           - cisco_group
-          - test_subject2
 Core3:
         hostname: 192.168.78.23
         groups:
           - core_sb
-          - test_subject3
+          - cisco_group
 Core4:
         hostname: 192.168.78.24
         groups:
           - core_sb
-          - test_subject4
+          - cisco_group
