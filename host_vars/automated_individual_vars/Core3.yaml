@@ -69,6 +69,5 @@ interfaces:
     mask: 255.255.255.0
 
 crypto:
-  ssc_test: '3899247252'
-  ssc_prod: '1796625291'
+  self_signed_certificate: '3899247252'
 

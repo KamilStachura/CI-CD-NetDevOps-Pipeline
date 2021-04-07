@@ -16,14 +16,18 @@ def append_config(task, config):
 # Check whether there is a current host_var file for the device and if there is, check if the feature is there
 # If the feature is not present in the file, append the file with the retrieved config
 def check_config(task, feature, config):
-    with open(f"host_vars/automated_individual_vars/{task.host}.yaml") as yf:
-        check_config = yaml.safe_load(yf)
-        if check_config is None:
-            append_config(task, config)
-        elif feature in check_config:
-            pass
-        else:
-            append_config(task, config)
+    try:
+        with open(f"host_vars/automated_individual_vars/{task.host}.yaml") as yf:
+            present_config = yaml.safe_load(yf)
+            if present_config is None:
+                append_config(task, config)
+            elif feature in present_config:
+                pass
+            else:
+                append_config(task, config)
+    except FileNotFoundError:
+        append_config(task, config)
+
 
 
 def retrieve_bgp(task, router_dict):

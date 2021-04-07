@@ -5447,3 +5447,676 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed
 
 2021-02-23 14:55:46,772 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
 2021-02-23 14:56:41,137 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-04-07 12:56:09,419 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-04-07 12:56:11,505 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-04-07 12:56:11,928 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-04-07 12:56:12,148 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-04-07 12:56:12,466 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts
+2021-04-07 13:13:08,867 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-04-07 13:13:10,194 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 19, in check_config
+    with open(f"host_vars/automated_individual_vars/{task.host}.yaml") as yf:
+FileNotFoundError: [Errno 2] No such file or directory: 'host_vars/automated_individual_vars/Core4.yaml'
+
+2021-04-07 13:13:10,197 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 19, in check_config
+    with open(f"host_vars/automated_individual_vars/{task.host}.yaml") as yf:
+FileNotFoundError: [Errno 2] No such file or directory: 'host_vars/automated_individual_vars/Core3.yaml'
+
+2021-04-07 13:13:10,300 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-04-07 13:13:10,515 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-04-07 13:13:10,692 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-04-07 13:13:10,902 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts
+2021-04-07 13:16:03,046 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-04-07 13:16:04,145 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 121, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 21, in check_config
+    with open(f"host_vars/automated_individual_vars/{task.host}.yaml") as yf:
+FileNotFoundError: [Errno 2] No such file or directory: 'host_vars/automated_individual_vars/Core3.yaml'
+
+2021-04-07 13:16:04,245 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 121, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 21, in check_config
+    with open(f"host_vars/automated_individual_vars/{task.host}.yaml") as yf:
+FileNotFoundError: [Errno 2] No such file or directory: 'host_vars/automated_individual_vars/Core4.yaml'
+
+2021-04-07 13:16:04,357 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-04-07 13:16:04,594 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-04-07 13:16:04,774 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-04-07 13:16:05,005 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts
+2021-04-07 13:20:06,718 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-04-07 13:20:07,441 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:20:07,497 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:20:07,585 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:20:07,610 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:20:07,689 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-04-07 13:20:07,690 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-04-07 13:20:07,690 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-04-07 13:20:07,691 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts
+2021-04-07 13:22:46,263 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-04-07 13:22:47,556 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-04-07 13:22:47,820 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-04-07 13:22:48,029 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-04-07 13:22:48,380 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts
+2021-04-07 13:24:31,357 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-04-07 13:24:32,272 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 19, in check_config
+    with open(f"host_vars/automated_individual_vars/{task.host}.yaml") as yf:
+FileNotFoundError: [Errno 2] No such file or directory: 'host_vars/automated_individual_vars/Core4.yaml'
+
+2021-04-07 13:24:32,297 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 19, in check_config
+    with open(f"host_vars/automated_individual_vars/{task.host}.yaml") as yf:
+FileNotFoundError: [Errno 2] No such file or directory: 'host_vars/automated_individual_vars/Core2.yaml'
+
+2021-04-07 13:24:32,302 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 19, in check_config
+    with open(f"host_vars/automated_individual_vars/{task.host}.yaml") as yf:
+FileNotFoundError: [Errno 2] No such file or directory: 'host_vars/automated_individual_vars/Core3.yaml'
+
+2021-04-07 13:24:32,425 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 19, in check_config
+    with open(f"host_vars/automated_individual_vars/{task.host}.yaml") as yf:
+FileNotFoundError: [Errno 2] No such file or directory: 'host_vars/automated_individual_vars/Core1.yaml'
+
+2021-04-07 13:24:32,468 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-04-07 13:24:32,468 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-04-07 13:24:32,469 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-04-07 13:24:32,469 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts
+2021-04-07 13:25:14,108 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-04-07 13:25:14,831 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:25:14,882 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:25:14,903 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:25:14,940 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:25:15,006 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-04-07 13:25:15,006 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-04-07 13:25:15,006 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-04-07 13:25:15,007 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts
+2021-04-07 13:25:19,333 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-04-07 13:25:20,225 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:25:20,246 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:25:20,261 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:25:20,349 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:25:20,416 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-04-07 13:25:20,417 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-04-07 13:25:20,417 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-04-07 13:25:20,417 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts
+2021-04-07 13:25:50,264 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-04-07 13:25:51,177 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:25:51,209 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:25:51,304 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:25:51,349 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:25:51,418 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-04-07 13:25:51,418 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-04-07 13:25:51,419 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-04-07 13:25:51,420 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts
+2021-04-07 13:27:27,165 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-04-07 13:27:28,098 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:27:28,158 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:27:28,196 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:27:28,216 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 119, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 20, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:27:28,284 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-04-07 13:27:28,286 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-04-07 13:27:28,287 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-04-07 13:27:28,287 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts
+2021-04-07 13:29:52,137 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-04-07 13:29:53,017 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 120, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 21, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:29:53,046 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 120, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 21, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:29:53,146 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 120, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 21, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:29:53,147 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'get_ntp' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_get_combined_host_vars.py", line 120, in get_ntp
+    check_config(task, "ntp", ntp_dict)
+  File "NETCONF_get_combined_host_vars.py", line 21, in check_config
+    present_config = yaml.safe_load(yf)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/__init__.py", line 112, in load
+    loader = Loader(stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/loader.py", line 34, in __init__
+    Reader.__init__(self, stream)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 85, in __init__
+    self.determine_encoding()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 124, in determine_encoding
+    self.update_raw()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/yaml/reader.py", line 178, in update_raw
+    data = self.stream.read(size)
+io.UnsupportedOperation: not readable
+
+2021-04-07 13:29:53,214 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-04-07 13:29:53,214 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-04-07 13:29:53,215 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-04-07 13:29:53,215 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts
+2021-04-07 13:36:56,403 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-04-07 13:36:57,581 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-04-07 13:36:57,822 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-04-07 13:36:58,014 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-04-07 13:36:58,360 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts
+2021-04-07 13:38:22,044 -  nornir.core -     INFO -        run() - Running task 'get_ntp' with args {} on 4 hosts
+2021-04-07 13:38:23,104 -  nornir.core -     INFO -        run() - Running task 'get_router' with args {} on 4 hosts
+2021-04-07 13:38:23,374 -  nornir.core -     INFO -        run() - Running task 'get_ip' with args {} on 4 hosts
+2021-04-07 13:38:23,579 -  nornir.core -     INFO -        run() - Running task 'get_interface' with args {} on 4 hosts
+2021-04-07 13:38:23,921 -  nornir.core -     INFO -        run() - Running task 'get_crypto' with args {} on 4 hosts

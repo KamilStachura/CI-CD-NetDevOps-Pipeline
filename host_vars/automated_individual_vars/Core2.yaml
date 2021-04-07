@@ -51,10 +51,6 @@ ip:
       srcmask: 0.0.0.255
       destip: 172.168.100.0
       destmask: 0.0.0.255
-#  static_routes:
-#  - network: 172.168.100.0
-#    mask: 255.255.255.0
-#    fwd: 1.1.1.1
 
 interfaces:
   GigEthernet:
@@ -103,7 +99,6 @@ crypto:
   policy:
   - number: '1'
     auth: pre-share
-    encryption_aes: 256
     group: '24'
     hash: sha512
     lifetime: '3600'
@@ -115,6 +110,5 @@ crypto:
     peer: 1.1.1.1
     pfs: group24
     transform_set: Core2-Core1
-  ssc_test: '3141318562'
-  ssc_prod: '1785531877'
+  self_signed_certificate: '3141318562'
 

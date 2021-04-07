@@ -99,7 +99,6 @@ crypto:
   policy:
   - number: '1'
     auth: pre-share
-    encryption_aes: 256
     group: '24'
     hash: sha512
     lifetime: '3600'
@@ -111,7 +110,5 @@ crypto:
     peer: 1.1.1.2
     pfs: group24
     transform_set: Core1-Core2
-  ssc_test: '2106910356'
-  ssc_prod: '3043059037'
-
+  self_signed_certificate: '2106910356'
 
