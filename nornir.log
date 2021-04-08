@@ -6659,3 +6659,24 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed
 2021-04-08 17:08:24,803 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
 2021-04-08 17:08:26,575 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
 2021-04-08 17:08:26,729 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-04-08 18:06:51,629 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-04-08 18:06:52,674 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-04-08 18:06:53,638 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'load_vars' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "NETCONF_jinja_push_test.py", line 20, in load_vars
+    configure_feature(task, feature)
+  File "NETCONF_jinja_push_test.py", line 36, in configure_feature
+    config=feature_template)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: Editing Candidate Configuration (failed)
+
+
+2021-04-08 18:06:54,688 -  nornir.core -     INFO -        run() - Running task 'config_discard' with args {} on 4 hosts
+2021-04-08 18:06:55,567 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-04-08 18:07:39,106 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-04-08 18:07:40,141 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-04-08 18:07:41,927 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-04-08 18:07:42,309 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
