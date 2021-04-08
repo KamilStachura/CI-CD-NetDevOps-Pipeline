@@ -25,7 +25,7 @@ def get_interface_information():
         }
 
         # Append the lists of shut and up interfaces with the appropriate expected interfaces
-        with open(f"/host_vars/automated_individual_vars/{device}") as cf:
+        with open(f"host_vars/automated_individual_vars/{device}") as cf:
             device_config = yaml.safe_load(cf)
         for interface in device_config["interfaces"]["GigEthernet"]:
             if "shutdown" in interface:
@@ -117,8 +117,6 @@ def main():
     interface_test_results = nr.run(
         task=interface_test, expected_interfaces=expected_interfaces
     )
-    # print_result(interface_test_results)
-
 
 if __name__ == "__main__":
     main()

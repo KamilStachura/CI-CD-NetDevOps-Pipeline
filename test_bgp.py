@@ -28,7 +28,7 @@ def get_bgp_information():
 
     # Open every device's config file and load it into the temp memory
     for device in device_list:
-        with open(f"/home/kamil/Hons/host_vars/automated_individual_vars/{device}") as cf:
+        with open(f"host_vars/automated_individual_vars/{device}") as cf:
             device_config = yaml.safe_load(cf)
 
 # Get expected BGP routers
@@ -128,7 +128,7 @@ def main():
     reset_bgp_result = nr.run(
         task=reset_bgp, name="BGP PROCESS RESET STARTED"
     )
-    # print_result(reset_bgp_result)
+
     bgp_expected_routers, bgp_expected_networks = get_bgp_information()
     time.sleep(120)
 
@@ -140,7 +140,6 @@ def main():
     bgp_networks_test_results = nr.run(
         task=bgp_networks_test, bgp_expected_networks=bgp_expected_networks, name="BGP NETWORKS TEST STARTED"
     )
-    # print_result(bgp_networks_test)
 
 
 if __name__ == "__main__":

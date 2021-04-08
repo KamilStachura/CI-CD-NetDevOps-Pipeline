@@ -23,6 +23,7 @@ bgp:
   - number: 10.10.10.0
     mask: 255.255.255.0
 
+
 ospf:
   id: '1'
   rid: 1.1.1.1
@@ -31,6 +32,9 @@ ospf:
     mask: 0.0.0.0
     area: '0'
   - ip: 172.168.100.0
+    mask: 0.0.0.255
+    area: '0'
+  - ip: 100.100.100.0
     mask: 0.0.0.255
     area: '0'
 
@@ -42,7 +46,7 @@ ip:
   - name: MGMT
     description: OOB Management
   extended_acl:
-  - name: '111'
+  - name: '120'
     sequences:
     - number: '10'
       action: permit
@@ -99,6 +103,7 @@ crypto:
   policy:
   - number: '1'
     auth: pre-share
+    encryption_aes: 256
     group: '24'
     hash: sha512
     lifetime: '3600'
@@ -110,5 +115,6 @@ crypto:
     peer: 1.1.1.2
     pfs: group24
     transform_set: Core1-Core2
-  self_signed_certificate: '2106910356'
+  ssc_test: '2106910356'
+  ssc_prod: '3043059037'
 

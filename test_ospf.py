@@ -59,8 +59,8 @@ def ospf_routing_test(task, comparison_list):
     response = response.result
     response = response["vrf"]["default"]["address_family"]["ipv4"]["instance"]["1"]["areas"]["0.0.0.0"]["database"]["lsa_types"][1]["lsas"]
 
-    for ospf_router in response:
-        ospf_database.append(ospf_router)
+    for ospf_route in response:
+        ospf_database.append(ospf_route)
 
     for entry in comparison_list:
         if entry in ospf_database:
@@ -69,7 +69,7 @@ def ospf_routing_test(task, comparison_list):
             error_list.append(entry)
 
     if error_list:
-        fail_report(task.host, "OSPF_ROUTING", f"Missing OSPF Routers {error_list}")
+        fail_report(task.host, "OSPF_ROUTING", f"Missing OSPF Routes {error_list}")
     else:
         print(f"{task.host} Passed OSPF Routing Test")
 
@@ -153,7 +153,6 @@ def main():
     ospf_neighbor_test_results = nr.run(
        task=ospf_neighbor_test, ospf_expected_neighbors_dict=ospf_expected_neighbors_dict
     )
-    # print_result(ospf_neighbor_test_results)
 
 
 if __name__ == "__main__":

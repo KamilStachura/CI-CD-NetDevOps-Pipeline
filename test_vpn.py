@@ -67,7 +67,6 @@ def main():
     vpn_test_results = nr.run(
         task=vpn_test,
     )
-    print_result(vpn_test_results)
 
 
 if __name__ == "__main__":
