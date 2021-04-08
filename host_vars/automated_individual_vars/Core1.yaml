@@ -34,9 +34,6 @@ ospf:
   - ip: 172.168.100.0
     mask: 0.0.0.255
     area: '0'
-  - ip: 100.100.100.0
-    mask: 0.0.0.255
-    area: '0'
 
 ip:
   domain: cisco.com
@@ -46,7 +43,7 @@ ip:
   - name: MGMT
     description: OOB Management
   extended_acl:
-  - name: '120'
+  - name: '111'
     sequences:
     - number: '10'
       action: permit

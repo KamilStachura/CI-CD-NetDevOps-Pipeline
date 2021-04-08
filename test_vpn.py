@@ -27,12 +27,12 @@ def vpn_test(task):
     clear_up = task.run(netmiko_send_command, command_string="clear crypto sa", expect_string=r".")
     if task.host.name == "Core1":
         response = task.run(
-            netmiko_send_command, command_string="ping 172.168.200.1 source 172.168.100.1 repeat 5", expect_string=r"."
+            netmiko_send_command, command_string="ping 172.168.200.1 source 172.168.100.1 repeat 10", expect_string=r"."
         )
         verify_vpn_tunnel(task)
     elif task.host.name == "Core2":
         response = task.run(
-            netmiko_send_command, command_string="ping 172.168.100.1 source 172.168.200.1 repeat 5", expect_string=r"."
+            netmiko_send_command, command_string="ping 172.168.100.1 source 172.168.200.1 repeat 10", expect_string=r"."
         )
         verify_vpn_tunnel(task)
     else:

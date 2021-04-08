@@ -6654,3 +6654,4 @@ Traceback (most recent call last):
 nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
 
 
+2021-04-08 12:44:44,239 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
