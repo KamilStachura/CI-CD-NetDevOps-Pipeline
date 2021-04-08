@@ -6655,3 +6655,7 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed
 
 
 2021-04-08 12:44:44,239 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-04-08 17:08:23,688 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-04-08 17:08:24,803 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-04-08 17:08:26,575 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-04-08 17:08:26,729 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
