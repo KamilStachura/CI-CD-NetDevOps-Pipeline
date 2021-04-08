@@ -89,6 +89,10 @@ interfaces:
     description: VPN LAN Core2
     ip: 172.168.200.1
     mask: 255.255.255.0
+  - name: '25'
+    description: BGP Advertised Loopback2
+    ip: 25.25.25.1
+    mask: 255.255.255.0
 
 crypto:
   transform_sets:

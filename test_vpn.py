@@ -19,7 +19,11 @@ def verify_vpn_tunnel(task):
         # Send a fail report if the packets are not being encapsulated/the tunnel is not active
         fail_report(task.host, "VPN", f"The VPN Tunnel is inactive")
     else:
-        print(f"{task.host} Passed VPN Test")
+        # print(f"{task.host} Passed VPN Test")
+        print(f"{task.host} Failed VPN Test")
+        # Send a fail report if the packets are not being encapsulated/the tunnel is not active
+        fail_report(task.host, "VPN", f"The VPN Tunnel is inactive")
+
 
 
 # Issue "clear crypto sa" command on specified devices and initiate the vpn tunnel by sending interesting traffic

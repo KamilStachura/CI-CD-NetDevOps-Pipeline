@@ -6680,3 +6680,513 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: Editing Candidate Configurat
 2021-04-08 18:07:40,141 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
 2021-04-08 18:07:41,927 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
 2021-04-08 18:07:42,309 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-04-08 18:17:00,104 -  nornir.core -     INFO -        run() - Running task 'OSPF PROCESS RESET STARTED' with args {} on 4 hosts
+2021-04-08 18:18:30,722 -  nornir.core -     INFO -        run() - Running task 'ospf_routing_test' with args {'comparison_list': ['1.1.1.1', '1.1.1.2', '1.1.1.3', '1.1.1.4']} on 4 hosts
+2021-04-08 18:18:32,510 -  nornir.core -     INFO -        run() - Running task 'ospf_neighbor_test' with args {'ospf_expected_neighbors_dict': {'Core1': {'interfaces': ['GigabitEthernet2', 'GigabitEthernet3'], 'neighbor_count': 2}, 'Core2': {'interfaces': ['GigabitEthernet2', 'GigabitEthernet3'], 'neighbor_count': 2}, 'Core3': {'interfaces': ['GigabitEthernet2', 'GigabitEthernet3'], 'neighbor_count': 2}, 'Core4': {'interfaces': ['GigabitEthernet2', 'GigabitEthernet3'], 'neighbor_count': 2}}} on 4 hosts
+2021-04-08 18:18:41,148 -  nornir.core -     INFO -        run() - Running task 'BGP PROCESS RESET STARTED' with args {} on 4 hosts
+2021-04-08 18:20:41,895 -  nornir.core -     INFO -        run() - Running task 'BGP ROUTERS TEST STARTED' with args {'bgp_expected_routers': {'1.1.1.1': '65001', '1.1.1.2': '65001', '1.1.1.3': '65001', '1.1.1.4': '65001'}} on 4 hosts
+2021-04-08 18:20:43,460 -  nornir.core -     INFO -        run() - Running task 'BGP NETWORKS TEST STARTED' with args {'bgp_expected_networks': ['10.10.10.0/24', '20.20.20.0/24', '25.25.25.0/24', '30.30.30.0/24', '40.40.40.0/24']} on 4 hosts
+2021-04-08 18:20:54,246 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-04-08 18:21:47,121 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-04-08 18:21:48,303 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-04-08 18:21:50,061 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-04-08 18:21:50,298 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-04-08 18:21:54,863 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-04-08 18:22:35,632 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 699, in recv
+    out = self.in_buffer.read(nbytes, self.timeout)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/buffered_pipe.py", line 164, in read
+    raise PipeTimeout()
+paramiko.buffered_pipe.PipeTimeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 569, in _read_channel_expect
+    new_data = self.remote_conn.recv(MAX_BUFFER)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 701, in recv
+    raise socket.timeout()
+socket.timeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 32, in netmiko_send_command
+    result = net_connect.send_command(command_string, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/utilities.py", line 429, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 1484, in send_command
+    new_data = self.read_until_pattern(pattern=re.escape(cmd))
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 646, in read_until_pattern
+    return self._read_channel_expect(*args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 580, in _read_channel_expect
+    "Timed-out reading channel, data not available."
+netmiko.ssh_exception.NetmikoTimeoutException: Timed-out reading channel, data not available.
+
+2021-04-08 18:22:35,633 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 37, in vpn_test
+    verify_vpn_tunnel(task)
+  File "test_vpn.py", line 15, in verify_vpn_tunnel
+    netmiko_send_command, command_string="show crypto ipsec sa", expect_string=r"."
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-04-08 18:22:35,710 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 699, in recv
+    out = self.in_buffer.read(nbytes, self.timeout)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/buffered_pipe.py", line 164, in read
+    raise PipeTimeout()
+paramiko.buffered_pipe.PipeTimeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 569, in _read_channel_expect
+    new_data = self.remote_conn.recv(MAX_BUFFER)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 701, in recv
+    raise socket.timeout()
+socket.timeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 32, in netmiko_send_command
+    result = net_connect.send_command(command_string, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/utilities.py", line 429, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 1484, in send_command
+    new_data = self.read_until_pattern(pattern=re.escape(cmd))
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 646, in read_until_pattern
+    return self._read_channel_expect(*args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 580, in _read_channel_expect
+    "Timed-out reading channel, data not available."
+netmiko.ssh_exception.NetmikoTimeoutException: Timed-out reading channel, data not available.
+
+2021-04-08 18:22:35,710 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 32, in vpn_test
+    verify_vpn_tunnel(task)
+  File "test_vpn.py", line 15, in verify_vpn_tunnel
+    netmiko_send_command, command_string="show crypto ipsec sa", expect_string=r"."
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-04-08 18:22:44,766 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-04-08 18:23:25,551 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 699, in recv
+    out = self.in_buffer.read(nbytes, self.timeout)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/buffered_pipe.py", line 164, in read
+    raise PipeTimeout()
+paramiko.buffered_pipe.PipeTimeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 569, in _read_channel_expect
+    new_data = self.remote_conn.recv(MAX_BUFFER)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 701, in recv
+    raise socket.timeout()
+socket.timeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 32, in netmiko_send_command
+    result = net_connect.send_command(command_string, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/utilities.py", line 429, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 1484, in send_command
+    new_data = self.read_until_pattern(pattern=re.escape(cmd))
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 646, in read_until_pattern
+    return self._read_channel_expect(*args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 580, in _read_channel_expect
+    "Timed-out reading channel, data not available."
+netmiko.ssh_exception.NetmikoTimeoutException: Timed-out reading channel, data not available.
+
+2021-04-08 18:23:25,552 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 37, in vpn_test
+    verify_vpn_tunnel(task)
+  File "test_vpn.py", line 15, in verify_vpn_tunnel
+    netmiko_send_command, command_string="show crypto ipsec sa", expect_string=r"."
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-04-08 18:23:25,591 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 699, in recv
+    out = self.in_buffer.read(nbytes, self.timeout)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/buffered_pipe.py", line 164, in read
+    raise PipeTimeout()
+paramiko.buffered_pipe.PipeTimeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 569, in _read_channel_expect
+    new_data = self.remote_conn.recv(MAX_BUFFER)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 701, in recv
+    raise socket.timeout()
+socket.timeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 32, in netmiko_send_command
+    result = net_connect.send_command(command_string, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/utilities.py", line 429, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 1484, in send_command
+    new_data = self.read_until_pattern(pattern=re.escape(cmd))
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 646, in read_until_pattern
+    return self._read_channel_expect(*args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 580, in _read_channel_expect
+    "Timed-out reading channel, data not available."
+netmiko.ssh_exception.NetmikoTimeoutException: Timed-out reading channel, data not available.
+
+2021-04-08 18:23:25,591 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 32, in vpn_test
+    verify_vpn_tunnel(task)
+  File "test_vpn.py", line 15, in verify_vpn_tunnel
+    netmiko_send_command, command_string="show crypto ipsec sa", expect_string=r"."
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-04-08 18:24:11,063 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-04-08 18:24:51,798 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 699, in recv
+    out = self.in_buffer.read(nbytes, self.timeout)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/buffered_pipe.py", line 164, in read
+    raise PipeTimeout()
+paramiko.buffered_pipe.PipeTimeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 569, in _read_channel_expect
+    new_data = self.remote_conn.recv(MAX_BUFFER)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 701, in recv
+    raise socket.timeout()
+socket.timeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 32, in netmiko_send_command
+    result = net_connect.send_command(command_string, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/utilities.py", line 429, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 1484, in send_command
+    new_data = self.read_until_pattern(pattern=re.escape(cmd))
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 646, in read_until_pattern
+    return self._read_channel_expect(*args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 580, in _read_channel_expect
+    "Timed-out reading channel, data not available."
+netmiko.ssh_exception.NetmikoTimeoutException: Timed-out reading channel, data not available.
+
+2021-04-08 18:24:51,798 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 37, in vpn_test
+    verify_vpn_tunnel(task)
+  File "test_vpn.py", line 15, in verify_vpn_tunnel
+    netmiko_send_command, command_string="show crypto ipsec sa", expect_string=r"."
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-04-08 18:24:51,853 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 699, in recv
+    out = self.in_buffer.read(nbytes, self.timeout)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/buffered_pipe.py", line 164, in read
+    raise PipeTimeout()
+paramiko.buffered_pipe.PipeTimeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 569, in _read_channel_expect
+    new_data = self.remote_conn.recv(MAX_BUFFER)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 701, in recv
+    raise socket.timeout()
+socket.timeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 32, in netmiko_send_command
+    result = net_connect.send_command(command_string, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/utilities.py", line 429, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 1484, in send_command
+    new_data = self.read_until_pattern(pattern=re.escape(cmd))
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 646, in read_until_pattern
+    return self._read_channel_expect(*args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 580, in _read_channel_expect
+    "Timed-out reading channel, data not available."
+netmiko.ssh_exception.NetmikoTimeoutException: Timed-out reading channel, data not available.
+
+2021-04-08 18:24:51,853 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 32, in vpn_test
+    verify_vpn_tunnel(task)
+  File "test_vpn.py", line 15, in verify_vpn_tunnel
+    netmiko_send_command, command_string="show crypto ipsec sa", expect_string=r"."
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-04-08 18:26:13,788 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-04-08 18:26:14,978 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-04-08 18:26:16,739 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-04-08 18:26:16,958 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-04-08 18:26:21,270 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-04-08 18:26:51,683 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-04-08 18:26:52,739 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-04-08 18:27:01,970 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-04-08 18:27:02,176 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-04-08 18:27:06,596 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-04-08 18:27:47,348 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 699, in recv
+    out = self.in_buffer.read(nbytes, self.timeout)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/buffered_pipe.py", line 164, in read
+    raise PipeTimeout()
+paramiko.buffered_pipe.PipeTimeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 569, in _read_channel_expect
+    new_data = self.remote_conn.recv(MAX_BUFFER)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 701, in recv
+    raise socket.timeout()
+socket.timeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 32, in netmiko_send_command
+    result = net_connect.send_command(command_string, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/utilities.py", line 429, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 1484, in send_command
+    new_data = self.read_until_pattern(pattern=re.escape(cmd))
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 646, in read_until_pattern
+    return self._read_channel_expect(*args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 580, in _read_channel_expect
+    "Timed-out reading channel, data not available."
+netmiko.ssh_exception.NetmikoTimeoutException: Timed-out reading channel, data not available.
+
+2021-04-08 18:27:47,348 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 32, in vpn_test
+    verify_vpn_tunnel(task)
+  File "test_vpn.py", line 15, in verify_vpn_tunnel
+    netmiko_send_command, command_string="show crypto ipsec sa", expect_string=r"."
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-04-08 18:27:47,445 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 699, in recv
+    out = self.in_buffer.read(nbytes, self.timeout)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/buffered_pipe.py", line 164, in read
+    raise PipeTimeout()
+paramiko.buffered_pipe.PipeTimeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 569, in _read_channel_expect
+    new_data = self.remote_conn.recv(MAX_BUFFER)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 701, in recv
+    raise socket.timeout()
+socket.timeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 32, in netmiko_send_command
+    result = net_connect.send_command(command_string, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/utilities.py", line 429, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 1484, in send_command
+    new_data = self.read_until_pattern(pattern=re.escape(cmd))
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 646, in read_until_pattern
+    return self._read_channel_expect(*args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 580, in _read_channel_expect
+    "Timed-out reading channel, data not available."
+netmiko.ssh_exception.NetmikoTimeoutException: Timed-out reading channel, data not available.
+
+2021-04-08 18:27:47,445 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 37, in vpn_test
+    verify_vpn_tunnel(task)
+  File "test_vpn.py", line 15, in verify_vpn_tunnel
+    netmiko_send_command, command_string="show crypto ipsec sa", expect_string=r"."
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-04-08 18:28:42,077 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-04-08 18:29:22,817 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 699, in recv
+    out = self.in_buffer.read(nbytes, self.timeout)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/buffered_pipe.py", line 164, in read
+    raise PipeTimeout()
+paramiko.buffered_pipe.PipeTimeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 569, in _read_channel_expect
+    new_data = self.remote_conn.recv(MAX_BUFFER)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 701, in recv
+    raise socket.timeout()
+socket.timeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 32, in netmiko_send_command
+    result = net_connect.send_command(command_string, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/utilities.py", line 429, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 1484, in send_command
+    new_data = self.read_until_pattern(pattern=re.escape(cmd))
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 646, in read_until_pattern
+    return self._read_channel_expect(*args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 580, in _read_channel_expect
+    "Timed-out reading channel, data not available."
+netmiko.ssh_exception.NetmikoTimeoutException: Timed-out reading channel, data not available.
+
+2021-04-08 18:29:22,818 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 35, in vpn_test
+    verify_vpn_tunnel(task)
+  File "test_vpn.py", line 15, in verify_vpn_tunnel
+    netmiko_send_command, command_string="show crypto ipsec sa", expect_string=r"."
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-04-08 18:29:22,851 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 699, in recv
+    out = self.in_buffer.read(nbytes, self.timeout)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/buffered_pipe.py", line 164, in read
+    raise PipeTimeout()
+paramiko.buffered_pipe.PipeTimeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 569, in _read_channel_expect
+    new_data = self.remote_conn.recv(MAX_BUFFER)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/channel.py", line 701, in recv
+    raise socket.timeout()
+socket.timeout
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 32, in netmiko_send_command
+    result = net_connect.send_command(command_string, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/utilities.py", line 429, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 1484, in send_command
+    new_data = self.read_until_pattern(pattern=re.escape(cmd))
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 646, in read_until_pattern
+    return self._read_channel_expect(*args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 580, in _read_channel_expect
+    "Timed-out reading channel, data not available."
+netmiko.ssh_exception.NetmikoTimeoutException: Timed-out reading channel, data not available.
+
+2021-04-08 18:29:22,851 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 40, in vpn_test
+    verify_vpn_tunnel(task)
+  File "test_vpn.py", line 15, in verify_vpn_tunnel
+    netmiko_send_command, command_string="show crypto ipsec sa", expect_string=r"."
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-04-08 18:30:04,243 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-04-08 18:30:05,645 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-04-08 18:30:07,005 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-04-08 18:30:07,231 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-04-08 18:30:23,596 -  nornir.core -     INFO -        run() - Running task 'OSPF PROCESS RESET STARTED' with args {} on 4 hosts
+2021-04-08 18:31:54,295 -  nornir.core -     INFO -        run() - Running task 'ospf_routing_test' with args {'comparison_list': ['1.1.1.1', '1.1.1.2', '1.1.1.3', '1.1.1.4']} on 4 hosts
+2021-04-08 18:31:55,743 -  nornir.core -     INFO -        run() - Running task 'ospf_neighbor_test' with args {'ospf_expected_neighbors_dict': {'Core1': {'interfaces': ['GigabitEthernet2', 'GigabitEthernet3'], 'neighbor_count': 2}, 'Core2': {'interfaces': ['GigabitEthernet2', 'GigabitEthernet3'], 'neighbor_count': 2}, 'Core3': {'interfaces': ['GigabitEthernet2', 'GigabitEthernet3'], 'neighbor_count': 2}, 'Core4': {'interfaces': ['GigabitEthernet2', 'GigabitEthernet3'], 'neighbor_count': 2}}} on 4 hosts
+2021-04-08 18:32:05,956 -  nornir.core -     INFO -        run() - Running task 'BGP PROCESS RESET STARTED' with args {} on 4 hosts
+2021-04-08 18:34:06,756 -  nornir.core -     INFO -        run() - Running task 'BGP ROUTERS TEST STARTED' with args {'bgp_expected_routers': {'1.1.1.1': '65001', '1.1.1.2': '65001', '1.1.1.3': '65001', '1.1.1.4': '65001'}} on 4 hosts
+2021-04-08 18:34:08,458 -  nornir.core -     INFO -        run() - Running task 'BGP NETWORKS TEST STARTED' with args {'bgp_expected_networks': ['10.10.10.0/24', '20.20.20.0/24', '25.25.25.0/24', '30.30.30.0/24', '40.40.40.0/24']} on 4 hosts
+2021-04-08 18:34:14,529 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-04-08 18:34:35,848 -  nornir.core -     INFO -        run() - Running task 'config_lock' with args {} on 4 hosts
+2021-04-08 18:34:37,058 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
+2021-04-08 18:34:38,240 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
+2021-04-08 18:34:38,465 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
