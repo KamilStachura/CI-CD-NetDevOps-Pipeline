@@ -6425,3 +6425,232 @@ KeyError: 'areas'
 2021-04-07 18:00:56,659 -  nornir.core -     INFO -        run() - Running task 'load_vars' with args {} on 4 hosts
 2021-04-07 18:00:57,774 -  nornir.core -     INFO -        run() - Running task 'config_commit' with args {} on 4 hosts
 2021-04-07 18:00:58,033 -  nornir.core -     INFO -        run() - Running task 'config_unlock' with args {} on 4 hosts
+2021-04-08 12:20:53,809 -  nornir.core -     INFO -        run() - Running task 'vpn_test' with args {} on 4 hosts
+2021-04-08 12:20:58,824 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 920, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 312, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 942, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_xe 192.168.78.21:22
+
+
+
+2021-04-08 12:20:58,824 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 920, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 312, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 942, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_xe 192.168.78.23:22
+
+
+
+2021-04-08 12:20:58,824 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 920, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 312, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 942, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_xe 192.168.78.22:22
+
+
+
+2021-04-08 12:20:58,824 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 920, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/client.py", line 349, in connect
+    retry_on_signal(lambda: sock.connect(addr))
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/util.py", line 283, in retry_on_signal
+    return function()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/paramiko/client.py", line 349, in <lambda>
+    retry_on_signal(lambda: sock.connect(addr))
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/inventory.py", line 448, in get_connection
+    extras=conn.extras,
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/inventory.py", line 499, in open_connection
+    configuration=configuration,
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/ssh_dispatcher.py", line 312, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/cisco/cisco_ios.py", line 17, in __init__
+    return super().__init__(*args, **kwargs)
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 346, in __init__
+    self._open()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 351, in _open
+    self.establish_connection()
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/netmiko/base_connection.py", line 942, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.ssh_exception.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_xe 192.168.78.24:22
+
+
+
+2021-04-08 12:20:58,825 - nornir.core.task -    ERROR -      start() - Host 'Core1': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 27, in vpn_test
+    clear_up = task.run(netmiko_send_command, command_string="clear crypto sa", expect_string=r".")
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-04-08 12:20:58,825 - nornir.core.task -    ERROR -      start() - Host 'Core3': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 27, in vpn_test
+    clear_up = task.run(netmiko_send_command, command_string="clear crypto sa", expect_string=r".")
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-04-08 12:20:58,825 - nornir.core.task -    ERROR -      start() - Host 'Core2': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 27, in vpn_test
+    clear_up = task.run(netmiko_send_command, command_string="clear crypto sa", expect_string=r".")
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+
+2021-04-08 12:20:58,825 - nornir.core.task -    ERROR -      start() - Host 'Core4': task 'vpn_test' failed with traceback:
+Traceback (most recent call last):
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+  File "test_vpn.py", line 27, in vpn_test
+    clear_up = task.run(netmiko_send_command, command_string="clear crypto sa", expect_string=r".")
+  File "/home/kamil/yetAnotherVirtualEnv/testing_env/lib/python3.6/site-packages/nornir/core/task.py", line 168, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_send_command (failed)
+
+

@@ -12,7 +12,7 @@ import time
 def verify_vpn_tunnel(task):
     time.sleep(10)
     response = task.run(
-        netmiko_send_command, command_string="show crypto ipsec sa",
+        netmiko_send_command, command_string="show crypto ipsec sa", expect_string=r"."
     )
     if "#pkts encaps: 0" in response.result:
         print(f"{task.host} Failed VPN Test")
